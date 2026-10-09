@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import hero from '../assets/images/hero-whiplash.png';
+import { clinic } from '../data/site';
+import Icon from './Icon.astro';
+import AppointmentButton from './AppointmentButton.astro';
+---
+<section class="hero canvas" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <h1 id="hero-title">Car Accident Rehabilitation In Tampa.</h1>
+        <p>At Advanced Human Care, our therapists are highly skilled experts in treating injuries you may have sustained in a car accident.</p>
+        <p>Get your lifestyle back with physical rehabilitation focused on your recovery.</p>
+        <div class="hero-actions"><AppointmentButton /><a href={clinic.phoneHref} class="button button-outline"><Icon name="Phone" size={18} /><span>{clinic.phone}</span></a></div>
+      </div>
+      <div class="hero-media">
+        <Image src={hero} alt="Illustrative scene of a therapist gently assessing a patient's neck during rehabilitation." width={1160} height={870} widths={[360, 580, 800, 1160]} sizes="(min-width: 1120px) 580px, (min-width: 760px) 50vw, calc(100vw - 48px)" format="webp" quality={82} loading="eager" fetchpriority="high" class="photo hero-photo" />
+        <p class="recovery-caption"><Icon name="Activity" size={28} /><span>Get Your Lifestyle Back.</span></p>
+      </div>
+    </div>
+    <div class="hero-details">
+      <a href={clinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" size={20} /><span>{clinic.address}</span><span class="sr-only"> (opens in a new tab)</span></a>
+      <p><Icon name="Clock3" size={20} /><span>{clinic.hours}</span></p>
+    </div>
+  </div>
+</section>

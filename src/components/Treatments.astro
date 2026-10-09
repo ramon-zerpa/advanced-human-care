@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import image from '../assets/images/treatments-back.png';
+import { treatments } from '../data/site';
+import AppointmentButton from './AppointmentButton.astro';
+---
+<section id="treatments" class="section canvas" aria-labelledby="treatments-title">
+  <div class="container">
+    <div class="section-intro"><h2 id="treatments-title">Our Treatments.</h2><p>During your appointment, your therapist will evaluate your strength and range of motion to develop a treatment plan.</p></div>
+    <div class="treatment-layout">
+      <div class="treatment-media">
+        <Image src={image} alt="Illustrative scene of a female therapist assessing a male patient's back." width={800} height={600} widths={[360, 440, 680, 800]} sizes="(min-width: 1120px) 400px, (min-width: 760px) 35vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo treatment-photo" />
+        <h3>Hands-On Care, Focused On Recovery.</h3><AppointmentButton class="treatment-cta" />
+      </div>
+      <div class="treatment-grid">{treatments.map(item => <article><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
+    </div>
+  </div>
+</section>

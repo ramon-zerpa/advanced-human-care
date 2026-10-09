@@ -1,0 +1,8 @@
+---
+import Icon from './Icon.astro';
+interface Props { compact?: boolean; class?: string; }
+const { compact = false, class: className } = Astro.props;
+---
+<a href="#contact-us" class:list={['button button-primary', { 'button-compact': compact }, className]}>
+  <span>Request an appointment</span><Icon name="ArrowUpRight" size={compact ? 16 : 18} />
+</a>

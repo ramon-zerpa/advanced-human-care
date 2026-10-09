@@ -1,0 +1,10 @@
+---
+import { injuries } from '../data/site';
+import Icon from './Icon.astro';
+---
+<section class="section injuries" aria-labelledby="injuries-title">
+  <div class="container">
+    <div class="section-intro"><h2 id="injuries-title">Care For Common Car Accident Injuries.</h2><p>Our rehabilitation team helps you recover from injuries sustained in a car accident.</p></div>
+    <div class="injury-grid">{injuries.map(item => <article><span class="injury-icon"><Icon name={item.icon} size={28} /></span><div class="injury-copy"><h3>{item.title}</h3><p>{item.copy}</p></div></article>)}</div>
+  </div>
+</section>

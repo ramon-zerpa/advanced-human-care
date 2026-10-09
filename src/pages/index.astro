@@ -1,16 +1,18 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Advanced Human Care — Project Preview</title>
-  </head>
-  <body>
-    <main>
-      <h1>Advanced Human Care</h1>
-      <p>The website redesign is in preparation.</p>
-      <p>This preview is used to verify the project setup.</p>
-    </main>
-  </body>
-</html>
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Injuries from '../components/Injuries.astro';
+import Treatments from '../components/Treatments.astro';
+import CareSupport from '../components/CareSupport.astro';
+import Team from '../components/Team.astro';
+import Recovery from '../components/Recovery.astro';
+import FirstVisit from '../components/FirstVisit.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+<PageLayout title="Car Accident Rehabilitation In Tampa | Advanced Human Care" description="Car accident injury rehabilitation in Tampa for whiplash, back, knee and shoulder pain. Meet our team and request an appointment at Advanced Human Care.">
+  <Header />
+  <main id="main-content" tabindex="-1"><Hero /><Injuries /><Treatments /><CareSupport /><Team /><Recovery /><FirstVisit /><Contact /></main>
+  <Footer />
+</PageLayout>

@@ -1,5 +1,7 @@
 # Advanced Human Care — inicio del rediseño
 
+Actualización 2026-10-09: diseño completo de Pencil aprobado; primera implementación EN en Astro en revisión. Ver docs/05-implementation/EN-PREVIEW.md para el estado vigente, verificaciones y pendientes. Las notas iniciales de diagnóstico siguientes se conservan como historial.
+
 Estado: alcance confirmado por el usuario; diagnóstico de rutas y contrato público del formulario completado. Arquitectura y diseño pendientes de aprobación.
 Fecha: 2026-10-08.
 

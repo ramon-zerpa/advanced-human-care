@@ -1,0 +1,47 @@
+---
+import { clinic } from '../data/site';
+import Icon from './Icon.astro';
+const sitekey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+const enabled = Boolean(sitekey);
+---
+<section id="contact-us" class="section canvas" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="section-intro contact-intro"><h2 id="contact-title">Start Your Recovery.</h2><p>Request physical rehabilitation at Advanced Human Care. Tell us how to reach you.</p></div>
+    <div class="contact-layout">
+      <div class="contact-details">
+        <h3>Visit Our Tampa Clinic.</h3>
+        <div class="contact-channels">
+          <a href={clinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" /><span>{clinic.address}<span class="sr-only"> (opens in a new tab)</span></span></a>
+          <a href={clinic.phoneHref}><Icon name="Phone" /><span>{clinic.phone}</span></a>
+          <a href={`mailto:${clinic.email}`}><Icon name="Mail" /><span>{clinic.email}</span></a>
+          <p><Icon name="Clock3" /><span>{clinic.hours}</span></p>
+        </div>
+        <p class="fax">Fax: {clinic.fax}</p>
+        <div class="map-shell" data-map-shell>
+          <div class="map-placeholder"><Icon name="Map" size={40} /><h4>Find Our Tampa Clinic.</h4><a href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a></div>
+        </div>
+        <a class="map-external" href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <form id="appointment-form" class="appointment-form" method="post" action="/api/contact" data-sitekey={sitekey} aria-labelledby="form-title">
+        <div class="form-heading"><h3 id="form-title">Request Physical Rehabilitation.</h3><p>Fields marked * are required.</p></div>
+        <div class="field"><label for="contact-name">Full name *</label><input id="contact-name" name="name" autocomplete="name" required maxlength="100" placeholder="Your full name" /></div>
+        <div class="field-row">
+          <div class="field"><label for="contact-email">Email *</label><input id="contact-email" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="Your email address" /></div>
+          <div class="field"><label for="contact-phone">Phone *</label><input id="contact-phone" type="tel" name="phone" autocomplete="tel" required maxlength="30" placeholder="Your phone number" /></div>
+        </div>
+        <div class="field"><label for="contact-date">Desired date (optional)</label><input id="contact-date" type="date" name="date" /></div>
+        <div class="field"><label for="contact-message">Message (optional)</label><textarea id="contact-message" name="message" maxlength="2000" placeholder="Tell us how we can help." rows="4"></textarea></div>
+        <div class="verification-shell" data-verification>
+          <div class="verification-placeholder"><Icon name="ShieldCheck" size={24} /><span>Security verification<small>Cloudflare Turnstile</small></span></div>
+        </div>
+        <button type="submit" class="button button-primary form-submit" disabled={!enabled} data-submit><span data-submit-label>Send appointment request</span><Icon name="ArrowUpRight" size={18} /></button>
+        <p class="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+        {!enabled && <p class="form-unavailable">Online requests will be available soon. Please <a href={clinic.phoneHref}>call {clinic.phone}</a> to request an appointment.</p>}
+        <noscript><p class="form-unavailable">Please enable JavaScript for security verification, or <a href={clinic.phoneHref}>call {clinic.phone}</a> to request an appointment.</p></noscript>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+  import '../scripts/contact';
+</script>

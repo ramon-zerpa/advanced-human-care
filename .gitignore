@@ -4,6 +4,7 @@
 # Dependencies and generated outputs
 node_modules/
 dist/
+pencil-design/exports/
 .astro/
 .wrangler/
 
