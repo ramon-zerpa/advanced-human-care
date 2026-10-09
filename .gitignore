@@ -1,0 +1,14 @@
+# Local specialist kit; source documented in PROJECT-BRIEF.md
+.agents/
+
+# Dependencies and generated outputs
+node_modules/
+dist/
+.astro/
+.wrangler/
+
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+*.log
