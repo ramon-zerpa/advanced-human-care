@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import care from '../assets/images/hero-scenes/personalized-care.png';
-import space from '../assets/images/hero-scenes/rehabilitation-space.png';
+import neck from '../assets/images/hero-whiplash.png';
 import { clinic } from '../data/site';
 import Icon from './Icon.astro';
 import AppointmentButton from './AppointmentButton.astro';
@@ -17,11 +17,22 @@ import AppointmentButton from './AppointmentButton.astro';
       </div>
       <div class="hero-media">
         <div class="hero-editorial">
-          <Image src={care} alt="" width={1160} height={870} widths={[360, 580, 800, 1160]} sizes="(min-width: 1120px) 522px, (min-width: 760px) 45vw, calc(100vw - 48px)" format="webp" quality={82} loading="eager" fetchpriority="high" class="editorial-main" />
-          <Image src={space} alt="" width={580} height={435} widths={[200, 360, 580]} sizes="(min-width: 1120px) 209px, (min-width: 760px) 18vw, 1px" format="webp" quality={82} loading="lazy" fetchpriority="low" class="editorial-detail" />
-          <p class="editorial-message"><Icon name="Activity" size={28} /><span>Get Your Lifestyle Back.</span></p>
+          <div class="editorial-main">
+            <div class="editorial-entry"><div class="editorial-hover">
+              <Image src={neck} alt="" width={1160} height={870} widths={[360, 580, 800, 1160]} sizes="(min-width: 1120px) 522px, (min-width: 760px) 45vw, calc(100vw - 48px)" format="webp" quality={82} loading="eager" fetchpriority="high" />
+            </div></div>
+          </div>
+          <div class="editorial-detail">
+            <div class="editorial-entry"><div class="editorial-hover">
+              <Image src={care} alt="" width={580} height={435} widths={[200, 360, 580]} sizes="(min-width: 1120px) 209px, (min-width: 760px) 18vw, 1px" format="webp" quality={82} loading="lazy" fetchpriority="low" />
+            </div></div>
+          </div>
+          <div class="editorial-message">
+            <div class="editorial-entry"><div class="editorial-hover">
+              <p><Icon name="Activity" size={28} /><span>Get Your Lifestyle Back.</span></p>
+            </div></div>
+          </div>
         </div>
-        <p class="editorial-note">Illustrative scenes · Not actual clinic photographs.</p>
       </div>
     </div>
     <div class="hero-details">
@@ -52,77 +63,87 @@ import AppointmentButton from './AppointmentButton.astro';
     aspect-ratio: 1.2;
     isolation: isolate;
   }
-  .editorial-main, .editorial-detail {
+  .editorial-main, .editorial-detail, .editorial-message {
     position: absolute;
+    --tilt: 0deg;
+    transform: rotate(var(--tilt));
+  }
+  .editorial-entry, .editorial-hover { width: 100%; height: 100%; }
+  .editorial-hover { transition: transform 450ms cubic-bezier(.22,.61,.36,1); }
+  .editorial-main img, .editorial-detail img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center top;
     border-radius: 12px;
     box-shadow: var(--image-shadow);
-    pointer-events: none;
   }
   .editorial-main {
     top: 8px;
     left: 8px;
     width: 90%;
-    height: auto;
     aspect-ratio: 4 / 3;
-    object-position: center top;
   }
   .editorial-detail {
     right: 12px;
     bottom: 12px;
     width: 36%;
-    height: auto;
     aspect-ratio: 4 / 3;
-    border: 5px solid var(--canvas);
-    transform: rotate(3deg);
+    --tilt: 3deg;
     z-index: 2;
   }
+  .editorial-detail img { border: 5px solid var(--canvas); }
   .editorial-message {
-    position: absolute;
-    left: 0;
+    left: -20px;
     bottom: 42px;
+    max-width: 70%;
+    z-index: 3;
+  }
+  .editorial-message p {
     display: flex;
     align-items: center;
     gap: 12px;
-    max-width: 70%;
     padding: 20px 22px;
     border-radius: 10px;
     background: var(--sage);
     color: var(--forest);
     box-shadow: var(--button-shadow);
     font: italic 600 24px/1.2 var(--font-heading);
-    z-index: 3;
   }
-  .is-introduced .editorial-main { animation: editorial-main-in 650ms cubic-bezier(.22,.61,.36,1) both; }
-  .is-introduced .editorial-detail { animation: editorial-detail-in 650ms 120ms cubic-bezier(.22,.61,.36,1) both; }
-  .is-introduced .editorial-message { animation: editorial-message-in 600ms 240ms cubic-bezier(.22,.61,.36,1) both; }
-  .editorial-note {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: 12px;
+  /* Separate layers keep entrance, ambient drift and hover from competing. */
+  .is-introduced .editorial-main { animation: editorial-float 10s 650ms ease-in-out infinite; }
+  .is-introduced .editorial-detail { animation: editorial-float 12s 770ms ease-in-out infinite; }
+  .is-introduced .editorial-message { animation: editorial-float 11s 840ms ease-in-out infinite; }
+  .is-introduced .editorial-main .editorial-entry { animation: editorial-main-in 650ms cubic-bezier(.22,.61,.36,1) both; }
+  .is-introduced .editorial-detail .editorial-entry { animation: editorial-detail-in 650ms 120ms cubic-bezier(.22,.61,.36,1) both; }
+  .is-introduced .editorial-message .editorial-entry { animation: editorial-message-in 600ms 240ms cubic-bezier(.22,.61,.36,1) both; }
+  @keyframes editorial-float {
+    0%, 100% { transform: translateY(0) rotate(var(--tilt)); }
+    50% { transform: translateY(-5px) rotate(var(--tilt)); }
   }
   @keyframes editorial-main-in {
     from { transform: translateY(20px); }
     to { transform: translateY(0); }
   }
   @keyframes editorial-detail-in {
-    from { opacity: 0; transform: translateX(18px) rotate(2deg); }
-    to { opacity: 1; transform: translateX(0) rotate(3deg); }
+    from { opacity: 0; transform: translateX(18px); }
+    to { opacity: 1; transform: translateX(0); }
   }
   @keyframes editorial-message-in {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  @media (hover: hover) and (pointer: fine) {
+    .editorial-main:hover .editorial-hover { transform: translateY(-4px) scale(1.012); }
+    .editorial-detail:hover .editorial-hover { transform: translateY(-4px) rotate(-1deg) scale(1.025); }
+    .editorial-message:hover .editorial-hover { transform: translateY(-3px) scale(1.015); }
+  }
   @media (min-width: 760px) and (max-width: 1119px) {
     .hero-layout { gap: 32px; }
-    .editorial-detail { width: 30%; transform: rotate(2deg); }
-    .is-introduced .editorial-detail { animation-name: editorial-detail-tablet-in; }
-    .editorial-message { bottom: 28px; padding: 14px; font-size: 18px; gap: 8px; }
+    .editorial-detail { width: 30%; --tilt: 2deg; }
+    .editorial-message { left: -8px; bottom: 28px; }
+    .editorial-message p { padding: 14px; font-size: 18px; gap: 8px; }
     .editorial-message svg { width: 22px; height: 22px; }
-    @keyframes editorial-detail-tablet-in {
-      from { opacity: 0; transform: translateX(12px) rotate(2deg); }
-      to { opacity: 1; transform: translateX(0) rotate(2deg); }
-    }
   }
   @media (max-width: 759px) {
     .hero-editorial { aspect-ratio: auto; padding-bottom: 30px; }
@@ -134,23 +155,27 @@ import AppointmentButton from './AppointmentButton.astro';
       max-height: 320px;
     }
     .editorial-detail { display: none; }
-    .editorial-message {
-      left: 12px;
-      right: 12px;
-      bottom: 0;
-      max-width: none;
-      padding: 16px;
-      font-size: 21px;
-    }
-    .is-introduced .editorial-main { animation: editorial-mobile-in 550ms ease-out both; }
+    .editorial-message { left: 4px; right: 20px; bottom: 0; max-width: none; }
+    .editorial-message p { padding: 16px; font-size: 21px; }
+    .is-introduced .editorial-main, .is-introduced .editorial-message { animation-name: editorial-float-mobile; }
+    .is-introduced .editorial-main .editorial-entry { animation: editorial-mobile-in 550ms ease-out both; }
     .is-introduced .editorial-detail { animation: none; }
-    .is-introduced .editorial-message { animation: editorial-mobile-in 550ms 80ms ease-out both; }
+    .is-introduced .editorial-message .editorial-entry { animation: editorial-mobile-in 550ms 80ms ease-out both; }
     @keyframes editorial-mobile-in {
       from { transform: translateY(8px); }
       to { transform: translateY(0); }
     }
+    @keyframes editorial-float-mobile {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
   }
   @media (prefers-reduced-motion: reduce) {
-    .is-introduced .editorial-main, .is-introduced .editorial-detail, .is-introduced .editorial-message { animation: none; }
+    .is-introduced .editorial-main, .is-introduced .editorial-detail, .is-introduced .editorial-message,
+    .is-introduced .editorial-main .editorial-entry,
+    .is-introduced .editorial-detail .editorial-entry,
+    .is-introduced .editorial-message .editorial-entry { animation: none; }
+    .editorial-main:hover .editorial-hover, .editorial-detail:hover .editorial-hover,
+    .editorial-message:hover .editorial-hover { transform: none; transition: none; }
   }
 </style>

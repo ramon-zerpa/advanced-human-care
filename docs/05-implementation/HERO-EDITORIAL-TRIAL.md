@@ -1,5 +1,15 @@
 # Hero editorial — prueba local
 
+## Revisión actual: imágenes y movimiento
+
+El usuario prefiere esta composición como base. Solicita usar hero-whiplash.png como foto principal y personalized-care.png como detalle, desplazar el mensaje 20 px a la izquierda en escritorio (8 px en tablet, posición izquierda 4 px en móvil), quitar la nota ilustrativa y no añadir control de pausa. No se generaron imágenes nuevas.
+
+Capas independientes para entrada, flotación y hover. Flotación vertical suave de 5 px, ciclos de 10/12/11 segundos para principal/detalle/mensaje; móvil 2 px. Hover con desplazamiento de 3–4 px y escala de 1.012–1.025 solo para dispositivos con cursor fino. Movimiento reducido elimina entrada, flotación y efecto hover. Tarjetas sin roles interactivos ni tabulación.
+
+La nota visible fue retirada por solicitud expresa; las fotografías siguen siendo conceptuales, sin atribuir nombres o credenciales. Revisión Chrome de flotación y hover en las fotos y tarjeta de mensaje; móvil conserva principal/mensaje, sin detalle. Build/check exitosos. Solo local y sin publicar.
+
+Las notas siguientes describen la primera iteración editorial, conservada en `35453fe`; la revisión de arriba es el estado vigente.
+
 2026-10-09. Misma rama `codex/hero-scene-window`, desde la prueba de ventana `9a0b8ab`. Solo local, sin push, despliegue ni merge. Vista: http://127.0.0.1:4321/.
 
 ## Composición
