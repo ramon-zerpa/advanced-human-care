@@ -6,6 +6,11 @@ import Icon from './Icon.astro';
 import AppointmentButton from './AppointmentButton.astro';
 ---
 <section class="hero canvas" aria-labelledby="hero-title">
+  <div class="hero-ambience" aria-hidden="true">
+    <span class="hero-halo hero-halo-sage"></span>
+    <span class="hero-halo hero-halo-gold"></span>
+    <span class="hero-halo hero-halo-forest"></span>
+  </div>
   <div class="container">
     <div class="hero-layout">
       <div class="hero-copy">
@@ -25,3 +30,70 @@ import AppointmentButton from './AppointmentButton.astro';
     </div>
   </div>
 </section>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+  }
+  .hero > .container {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-ambience {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-halo {
+    position: absolute;
+    width: min(65vw, 900px);
+    height: min(55vw, 700px);
+    opacity: 0.65;
+    animation: halo-drift 38s ease-in-out infinite alternate;
+  }
+  .hero-halo-sage {
+    top: -22%;
+    left: -14%;
+    background: radial-gradient(ellipse at center, var(--sage) 0%, transparent 70%);
+  }
+  .hero-halo-gold {
+    right: -12%;
+    bottom: -32%;
+    background: radial-gradient(ellipse at center, #f3e9d3 0%, transparent 70%);
+    animation-duration: 46s;
+    animation-delay: -18s;
+    animation-direction: alternate-reverse;
+  }
+  .hero-halo-forest {
+    left: 30%;
+    bottom: -46%;
+    background: radial-gradient(ellipse at center, #174a3a0d 0%, transparent 70%);
+    animation-duration: 52s;
+    animation-delay: -26s;
+  }
+  @keyframes halo-drift {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(24px, 16px, 0) scale(1.06); }
+  }
+  @media (max-width: 759px) {
+    .hero-halo {
+      width: 125vw;
+      height: 90vw;
+      opacity: 0.5;
+      animation-name: halo-drift-mobile;
+    }
+    .hero-halo-sage { top: -6%; left: -42%; }
+    .hero-halo-gold { right: -48%; bottom: -6%; }
+    .hero-halo-forest { display: none; }
+  }
+  @keyframes halo-drift-mobile {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(8px, 6px, 0) scale(1.025); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-halo { animation: none; }
+  }
+</style>
