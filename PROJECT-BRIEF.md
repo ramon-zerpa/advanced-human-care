@@ -41,7 +41,7 @@ Ver `docs/01-discovery/VALIDATION-REPORT.md` para sitemap, formulario y competid
 
 Dirección oficial confirmada por el usuario: **3558 N 29th St, Tampa, FL 33605**, tal como figura actualmente en el website legacy. Cloudflare confirmado como plataforma; el usuario autoriza crear el nuevo repositorio y conectarlo con despliegue automático desde GitHub.
 
-Repositorio privado creado: https://github.com/ramon-zerpa/advanced-human-care, rama `main`. Conexión a Cloudflare pendiente de inicio de sesión en el navegador y configuración del proyecto. Pendiente también revisar el backend del formulario. Ver `docs/03-infrastructure/DEPLOYMENT.md`.
+Repositorio privado creado: https://github.com/ramon-zerpa/advanced-human-care, rama `main`. Conectado a Cloudflare Pages con despliegues automáticos activados. Build `npm run build`, salida `dist`, Node 24.21.0. Base Astro 7.3.8 y página de prueba noindex publicadas en https://advanced-human-care.pages.dev/. Build inicial exitoso para `a1eba5a`. El dominio legacy sigue sin cambios. Pendiente revisar el backend del formulario. Ver `docs/03-infrastructure/DEPLOYMENT.md`.
 
 ## Fases propuestas
 
@@ -71,4 +71,4 @@ Configurar la integración GitHub de la plataforma elegida, build/output y varia
 
 ## Próximo paso
 
-Completar conexión GitHub–Cloudflare cuando esté disponible la sesión. Revisar la propuesta de estructura EN y preparar el brand-board con `ui-ux-pro-max` y Pencil antes de diseñar la one-page. No generar imágenes todavía.
+Conexión GitHub–Cloudflare configurada. Revisar la propuesta de estructura EN y preparar el brand-board con `ui-ux-pro-max` y Pencil antes de diseñar la one-page. No generar imágenes todavía.
