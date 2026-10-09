@@ -1,5 +1,7 @@
 # Hero: ventana de escenas — prueba local
 
+Historial: esta propuesta se conserva en el commit local `9a0b8ab`. Fue sustituida en la misma rama por [la composición editorial](HERO-EDITORIAL-TRIAL.md). El controlador, controles y pruebas específicas del slideshow fueron retirados; las imágenes fuente permanecen disponibles.
+
 2026-10-09. Rama `codex/hero-scene-window`, desde `216e6a7` en `codex/english-implementation`. Por indicación del usuario: sin push, sin despliegue y sin merge. Vista local: http://127.0.0.1:4321/.
 
 ## Alcance
