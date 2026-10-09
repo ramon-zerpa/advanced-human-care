@@ -12,6 +12,12 @@ Integración a main y push a GitHub, con despliegue automático de Cloudflare Pa
 
 ## Validación
 
-Astro check y build deben pasar sobre la versión final integrada. Las revisiones previas Chrome cubren desktop/tablet/mobile, ausencia de overflow, composición, CTA y hover; los ciclos del header son 4s/6s. Movimiento reducido implementado en CSS, sin prueba de la preferencia real del sistema. Ver documentación de hero/header para las limitaciones y evidencias.
+Astro check pasó con 0 errores, warnings e hints y el build fue exitoso sobre el contenido final integrado, sin modificaciones posteriores de código. Las revisiones previas Chrome cubren desktop/tablet/mobile, ausencia de overflow, composición, CTA y hover; los ciclos del header son 4s/6s. Movimiento reducido implementado en CSS, sin prueba de la preferencia real del sistema. Ver documentación de hero/header para las limitaciones y evidencias.
 
 La comprobación de Cloudflare se realiza después del push contra el commit de main y contra el contenido público; una recepción de GitHub por sí sola no demuestra que el deploy haya terminado.
+
+## Despliegue verificado
+
+Push a main: a74ba624eceb954a9cf365d3b6ec9bea2705d8c3. Check Cloudflare Pages completed/success, deployment 3f64052d-c3a8-4943-826d-217ca9fc8cb4. URL https://advanced-human-care.pages.dev/ verificada después de completar el check: HTTP 200, noindex/nofollow, un H1, ocho tratamientos, anclas preservadas, footer sin switcher y assets 200. Logo SHA256 idéntico al original. Reporte guardado en main-http.json.
+
+Chrome público confirma ambas fotos del hero cargadas, marco Sage, ausencia de efectos anteriores/nota/control, ciclos teléfono 4s y logo 6s, y ausencia de overflow. El commit documental que registra esta evidencia no modifica el código del sitio.
