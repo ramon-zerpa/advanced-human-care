@@ -11,9 +11,11 @@
 
 ## Estado
 
-La sesión Chrome de Cloudflare muestra login. Se solicita al usuario iniciar sesión en la pestaña abierta. Todavía no se ha creado ni conectado un proyecto Cloudflare para este repo. No se ha cambiado el dominio ni el sitio legacy.
+Sesión Chrome de Cloudflare iniciada por el usuario. Repo visible en la integración existente sin modificar permisos. Configuración de proyecto preparada; creación y build inicial pendientes de verificar. No se ha cambiado el dominio ni el sitio legacy.
 
-El repo está en fase de documentación/diseño: todavía no contiene aplicación Astro ni comando de build. No configurar como listo un build que aún no existe. La base técnica podrá prepararse para verificar la integración sin anticipar el diseño de la web.
+El repo está en fase de documentación/diseño. Base mínima Astro 7.3.8 preparada para probar la integración sin anticipar el diseño. Página de prueba con meta robots y cabecera X-Robots-Tag noindex/nofollow. Retirar esta restricción solo cuando corresponda publicar el sitio aprobado.
+
+Node local 24.21.0, mismo valor configurado en `.node-version` y previsto en `NODE_VERSION` de Pages. `npm audit` final: 0 vulnerabilidades. Build local de Astro 7 bloqueado por Application Control sobre el binding nativo; no se modificaron protecciones. Astro 6.4.8 compiló en una prueba temporal, pero se descartó por vulnerabilidades; no usar ese build como prueba de la versión final. Verificación final pendiente del build remoto.
 
 ## Configuración prevista
 
@@ -21,7 +23,7 @@ El repo está en fase de documentación/diseño: todavía no contiene aplicació
 - Repositorio objetivo exclusivamente `ramon-zerpa/advanced-human-care`; conservar permisos existentes de otros proyectos si se amplía la instalación GitHub.
 - Producción: `main`; previews de ramas/PR según configuración acordada.
 - Build Astro: `npm run build`; salida: `dist`; raíz del proyecto: `/`.
-- Versión Node compatible con la versión Astro instalada, a verificar al preparar el runtime.
+- Node 24.21.0 compatible con el requisito >=22.12.0 de Astro 7.3.8.
 - Variables, bindings y secretos del formulario: pendientes de inspección; no inventar configuración ni publicar secretos.
 - La verificación inicial será en el subdominio generado del nuevo proyecto. El dominio actual solo se conectará en la fase de publicación aprobada.
 - No ejecutar `wrangler deploy`, `wrangler pages deploy`, `vercel deploy` ni comandos equivalentes. Publicar mediante commit/push y comprobar deploy automático.
