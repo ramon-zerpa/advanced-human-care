@@ -18,6 +18,8 @@ Primer deployment: `6aa52425-9171-49da-98da-c532ecb5e870`, commit `a1eba5a137d83
 URL del proyecto: https://advanced-human-care.pages.dev/.
 Dashboard: https://dash.cloudflare.com/e647ec8fc06db97c1deb3d61c290ab38/pages/view/advanced-human-care.
 
+Prueba de push posterior a la conexión: commit `8a2897da11ea26098fc0c4e837a7b0d424188471` disparó automáticamente deployment `3b39befa-a476-4992-9bb3-09dcc8f69c5e`, exitoso según dashboard y check GitHub. Captura en `evidence/cloudflare-github-connected.png`. Conexión y automatización verificadas; formulario aún pendiente.
+
 El repo está en fase de documentación/diseño. Base mínima Astro 7.3.8 preparada para probar la integración sin anticipar el diseño. Página de prueba con meta robots y cabecera X-Robots-Tag noindex/nofollow. Retirar esta restricción solo cuando corresponda publicar el sitio aprobado.
 
 Node local 24.21.0, mismo valor configurado en `.node-version` y `NODE_VERSION` de Pages para producción y previews. `npm audit` final: 0 vulnerabilidades. Build local de Astro 7 bloqueado por Application Control sobre el binding nativo; no se modificaron protecciones. Astro 6.4.8 compiló en una prueba temporal, pero se descartó por vulnerabilidades; no usar ese build como prueba de la versión final. Astro 7.3.8 verificado mediante build remoto exitoso.
