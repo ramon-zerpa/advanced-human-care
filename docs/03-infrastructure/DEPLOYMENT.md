@@ -11,6 +11,8 @@
 
 ## Estado
 
+Entrega actual 2026-10-09: el usuario autoriza integrar la versión editorial aprobada a `main` y subir todo al repositorio. Sustituye la restricción de pruebas exclusivamente locales. El push a `main` publica mediante la integración GitHub existente en https://advanced-human-care.pages.dev/. No se cambia el dominio legacy ni se retira noindex/nofollow; formulario y español continúan pendientes. La verificación del despliegue de esta entrega se registra en docs/05-implementation/MAIN-INTEGRATION.md. Los deployments descritos a continuación corresponden al historial anterior a esta integración.
+
 Actualizado 2026-10-09: frontend EN implementado en `codex/english-implementation`, revisado por el usuario y conservado como base para nuevas pruebas. Preview verificado: https://c1b9da74.advanced-human-care.pages.dev/, deployment `c1b9da74-c3a7-4660-8cae-a0f02b00702c`, commit `0eea8bd`. El check de GitHub también confirma éxito para el commit documental `ed4be1a`, deployment `666cbb64-eef9-45ee-9afd-7b145ccdb200`; su URL pública no se ha comprobado por separado. Producción permanece en `main` con la base inicial. No se ha conectado el dominio legacy ni fusionado esta implementación a producción.
 
 Proyecto Cloudflare Pages `advanced-human-care` creado y conectado al repo mediante la integración GitHub existente, sin modificar permisos. Dashboard confirma `Automatic deployments enabled`, producción en `main` y dominio `advanced-human-care.pages.dev`. No se ha cambiado el dominio ni el sitio legacy.

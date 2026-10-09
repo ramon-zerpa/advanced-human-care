@@ -1,5 +1,7 @@
 # Header: animaciones periódicas — prueba local
 
+Entrega 2026-10-09: el usuario aprueba las animaciones y autoriza integrarlas a `main` y subirlas a GitHub junto con el hero editorial. Esta autorización sustituye la restricción local descrita en las notas siguientes. Ver MAIN-INTEGRATION.md.
+
 2026-10-09, rama codex/hero-scene-window. Sin push ni despliegue; continúa la revisión local del usuario.
 
 Solo Header.astro añade CSS: teléfono desktop repite cada 4 segundos la elevación de 2 px, sombra y giro de -8 grados del icono que tenía en hover. Primer ciclo tras 4 segundos; reposo entre pulsos. Hover y foco mantienen su respuesta manual y suspenden el ciclo mientras están activos.

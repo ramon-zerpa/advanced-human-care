@@ -15,7 +15,7 @@ Logo original inmutable en `brand/reference/advanced-human-care-logo-original.pn
 
 Kit especializado disponible localmente en `.agents/skills` desde el kit Astro del usuario, sin instalaciones globales. Esta carpeta no se versiona.
 
-Estado al 2026-10-09: diseño Pencil aprobado y one-page EN implementada en Astro. El usuario acepta el frontend actual como base para las siguientes pruebas. Vista verificada: https://c1b9da74.advanced-human-care.pages.dev/. Rama de trabajo: `codex/english-implementation`; producción sigue en `main`, sin sustituir el legacy. Cloudflare publica automáticamente desde GitHub. La vista conserva noindex/nofollow.
+Estado al 2026-10-09: el usuario aprueba integrar y subir a `main` la one-page EN con el hero editorial, fotos de cuello/conversación, marco Sage superior/derecho, flotación y hover, y animaciones periódicas del header. Las pruebas se desarrollaron en `codex/hero-scene-window`; `main` es ahora la rama de entrega. Cloudflare publica automáticamente desde GitHub en https://advanced-human-care.pages.dev/. El dominio legacy sigue sin cambios y se conserva noindex/nofollow hasta el lanzamiento definitivo.
 
 El formulario conserva su interfaz y contrato público, pero su backend permanece pendiente por indicación del usuario. Sin configuración de Turnstile, el envío está deshabilitado y se ofrece llamar. Español se hará al completar y aprobar EN.
 

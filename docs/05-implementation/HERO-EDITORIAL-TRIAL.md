@@ -1,5 +1,7 @@
 # Hero editorial — prueba local
 
+Actualización de entrega: el usuario aprueba esta versión y autoriza integrarla a `main` y subirla a GitHub el 2026-10-09. El marco Sage superior/derecho de 8 px también quedó aprobado, guardado en `ed3b419`. La condición “solo local” de las notas históricas siguientes queda sustituida por esta autorización. Ver MAIN-INTEGRATION.md.
+
 ## Revisión actual: imágenes y movimiento
 
 El usuario prefiere esta composición como base. Solicita usar hero-whiplash.png como foto principal y personalized-care.png como detalle, desplazar el mensaje 20 px a la izquierda en escritorio (8 px en tablet, posición izquierda 4 px en móvil), quitar la nota ilustrativa y no añadir control de pausa. No se generaron imágenes nuevas.

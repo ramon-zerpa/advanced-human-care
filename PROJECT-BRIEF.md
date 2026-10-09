@@ -1,5 +1,7 @@
 # Advanced Human Care — inicio del rediseño
 
+Entrega vigente 2026-10-09: hero editorial y animaciones del header aprobados; el usuario autoriza integrar todo en `main` y subirlo a GitHub, con despliegue automático en Cloudflare Pages. Se conserva noindex/nofollow y el dominio legacy sin cambios. Backend del formulario y español siguen pendientes. Ver docs/05-implementation/MAIN-INTEGRATION.md. Las actualizaciones siguientes documentan fases anteriores.
+
 Actualización 2026-10-09: diseño completo de Pencil aprobado; primera implementación EN en Astro revisada por el usuario y aceptada como base para nuevas pruebas. La integración real del formulario se deja pendiente por indicación del usuario; español se mantiene para el final. Ver [implementación EN](docs/05-implementation/EN-PREVIEW.md) y [punto de recuperación](docs/05-implementation/CHECKPOINT-BEFORE-TESTS.md) para el estado vigente, verificaciones y pendientes. Las notas iniciales de diagnóstico siguientes se conservan como historial.
 
 Estado: alcance confirmado por el usuario; diagnóstico de rutas y contrato público del formulario completado. Arquitectura y diseño pendientes de aprobación.
