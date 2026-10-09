@@ -17,22 +17,22 @@ export const navigation = [
 export const injuries = [
   {
     title: "Whiplash",
-    icon: "Activity",
+    icon: "Check",
     copy: "We offer a variety of options to help relieve your pain and recover from whiplash injuries.",
   },
   {
     title: "Back Pain",
-    icon: "MoveVertical",
+    icon: "Check",
     copy: "We can effectively treat lower, middle, and upper back injuries from a car accident.",
   },
   {
     title: "Knee Pain",
-    icon: "Footprints",
+    icon: "Check",
     copy: "Our therapy regimens include a combination of exercises to achieve strength and flexibility.",
   },
   {
     title: "Shoulder Pain",
-    icon: "StretchHorizontal",
+    icon: "Check",
     copy: "Physical rehabilitation can help you reduce or prevent the long-term effects of your injuries.",
   },
 ];
