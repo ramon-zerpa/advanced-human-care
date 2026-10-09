@@ -27,4 +27,3 @@ Exportaciones: pencil-design/exports/phase-05-recovery-testimonials/Kn4Aq.png y 
 Punto de parada: revisar esta sección antes de avanzar a dudas útiles o contacto. No se implementa en Astro todavía.
 
 Revisión posterior solicitada por el usuario: se retira `Thank you so much!` al final del testimonio de Emily Vasquez, manteniendo las otras frases y su nombre. Exportación corregida en `pencil-design/exports/phase-06-first-visit-faq/Kn4Aq.png` y `m4yv3.png`.
-

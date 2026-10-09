@@ -34,3 +34,11 @@ Sin PUBLIC_TURNSTILE_SITE_KEY el envío permanece deshabilitado y se ofrece llam
 Se conserva noindex/nofollow en HTML y X-Robots-Tag. Cloudflare se despliega exclusivamente por GitHub; dominio legacy sin cambios. Exportaciones históricas de Pencil quedan locales e ignoradas en Git; el editable y las imágenes fuente quedan versionados. Falta revisión visual del usuario, integración real del formulario y cierre de SEO/rendimiento antes de dar EN por terminado y comenzar ES.
 
 Referencias usadas: https://docs.astro.build/en/guides/images/ y https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/. No se incorporaron integraciones adicionales de compresión/critical CSS sin una necesidad medida; la página es estática, sin React ni hidratación de componentes.
+
+## Deploy comprobado
+
+Push de codex/english-implementation, commit 0eea8bdf5ba1776650f62eb5b67358bff87617d6. Check Cloudflare Pages completed/success. Deployment c1b9da74-c3a7-4660-8cae-a0f02b00702c, URL https://c1b9da74.advanced-human-care.pages.dev/.
+
+HTTP 200 y X-Robots-Tag noindex/nofollow. Un H1, ocho tratamientos, anclas preservadas, footer sin switcher; fuentes precargadas, CSS, logo y cuatro imágenes referenciadas responden 200. Ver preview-http.json y tools/verify-preview.mjs. Navegador confirma hero cargado y formulario deshabilitado mientras falta configuración. Hash del logo desplegable idéntico al original.
+
+Payload local generado: HTML 34.3 kB (8.2 kB gzip), CSS 15.8 kB (3.9 kB gzip), scripts nativos inline 4.1 kB, tres fuentes WOFF2. Son tamaños de archivos, no una puntuación Lighthouse ni métricas de usuarios reales.

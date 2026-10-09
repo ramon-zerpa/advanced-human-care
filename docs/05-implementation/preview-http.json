@@ -1,0 +1,46 @@
+{
+  "url": "https://c1b9da74.advanced-human-care.pages.dev/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "title": "Car Accident Rehabilitation In Tampa | Advanced Human Care",
+  "h1Count": 1,
+  "preservedAnchors": true,
+  "hasEightTreatments": true,
+  "footerLanguageSwitcher": false,
+  "logoHash": "38c16d49699619d52c227e8816e0fa261346e18773af21ef171568807d22a60d",
+  "originalLogoPreserved": true,
+  "assets": [
+    {
+      "path": "/_astro/lora-latin-600-italic.DAEba4jb.woff2",
+      "status": 200
+    },
+    {
+      "path": "/_astro/noto-sans-latin-400-normal.BTkUljjl.woff2",
+      "status": 200
+    },
+    {
+      "path": "/_astro/index.pZ0gdwDd.css",
+      "status": 200
+    },
+    {
+      "path": "/logo.png",
+      "status": 200
+    },
+    {
+      "path": "/_astro/hero-whiplash.BlTis3Gz_Z27i6iy.webp",
+      "status": 200
+    },
+    {
+      "path": "/_astro/treatments-back.WPABH5SO_zJlYk.webp",
+      "status": 200
+    },
+    {
+      "path": "/_astro/recovery.CRkC-Gn7_28xsRn.webp",
+      "status": 200
+    },
+    {
+      "path": "/_astro/first-visit.B1ut3TsD_1lhnxU.webp",
+      "status": 200
+    }
+  ]
+}
