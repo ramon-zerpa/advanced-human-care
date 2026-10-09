@@ -1,16 +1,14 @@
 ---
 import { Image } from 'astro:assets';
-import hero from '../assets/images/hero-whiplash.png';
+import care from '../assets/images/hero-scenes/personalized-care.png';
+import exercise from '../assets/images/hero-scenes/assisted-mobility.png';
+import space from '../assets/images/hero-scenes/rehabilitation-space.png';
+const scenes = [care, exercise, space];
 import { clinic } from '../data/site';
 import Icon from './Icon.astro';
 import AppointmentButton from './AppointmentButton.astro';
 ---
-<section class="hero canvas" aria-labelledby="hero-title">
-  <div class="hero-ambience" aria-hidden="true">
-    <span class="hero-halo hero-halo-sage"></span>
-    <span class="hero-halo hero-halo-gold"></span>
-    <span class="hero-halo hero-halo-forest"></span>
-  </div>
+<section class="hero canvas" aria-labelledby="hero-title" data-hero-scenes>
   <div class="container">
     <div class="hero-layout">
       <div class="hero-copy">
@@ -20,7 +18,15 @@ import AppointmentButton from './AppointmentButton.astro';
         <div class="hero-actions"><AppointmentButton /><a href={clinic.phoneHref} class="button button-outline"><Icon name="Phone" size={18} /><span>{clinic.phone}</span></a></div>
       </div>
       <div class="hero-media">
-        <Image src={hero} alt="Illustrative scene of a therapist gently assessing a patient's neck during rehabilitation." width={1160} height={870} widths={[360, 580, 800, 1160]} sizes="(min-width: 1120px) 580px, (min-width: 760px) 50vw, calc(100vw - 48px)" format="webp" quality={82} loading="eager" fetchpriority="high" class="photo hero-photo" />
+        <div class="scene-frame">
+          <div class="scene-window" aria-hidden="true">
+            {scenes.map((src, index) => <Image src={src} alt="" width={1160} height={870} widths={[360, 580, 800, 1160]} sizes="(min-width: 1120px) 580px, (min-width: 760px) 50vw, calc(100vw - 48px)" format="webp" quality={82} loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'low'} class={`hero-scene ${index === 0 ? 'is-current' : ''}`} />)}
+          </div>
+        </div>
+        <div class="scene-meta">
+          <p>Illustrative scenes · Not actual clinic photographs.</p>
+          <button class="scene-toggle" type="button" aria-pressed="false" hidden><Icon name="Pause" size={14} /><span>Pause scenes</span></button>
+        </div>
         <p class="recovery-caption"><Icon name="Activity" size={28} /><span>Get Your Lifestyle Back.</span></p>
       </div>
     </div>
@@ -31,69 +37,77 @@ import AppointmentButton from './AppointmentButton.astro';
   </div>
 </section>
 
+<script>
+  import '../scripts/hero-scenes';
+</script>
+
 <style>
-  .hero {
-    position: relative;
-    isolation: isolate;
+  .hero-copy, .hero-media { animation: none; }
+  .scene-frame {
+    padding: 8px 0 0 8px;
+    background: var(--sage);
+    border-radius: 18px;
   }
-  .hero > .container {
+  .scene-window {
     position: relative;
-    z-index: 1;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--sage);
+    box-shadow: var(--image-shadow);
   }
-  .hero-ambience {
+  .hero-scene {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    visibility: hidden;
     pointer-events: none;
-    z-index: 0;
   }
-  .hero-halo {
-    position: absolute;
-    width: min(65vw, 900px);
-    height: min(55vw, 700px);
-    opacity: 0.65;
-    animation: halo-drift 38s ease-in-out infinite alternate;
+  .hero-scene.is-current { visibility: visible; z-index: 1; }
+  .hero-scene.is-entering {
+    visibility: visible;
+    z-index: 2;
+    animation: scene-reveal 1100ms cubic-bezier(.25,.1,.25,1) both;
   }
-  .hero-halo-sage {
-    top: -22%;
-    left: -14%;
-    background: radial-gradient(ellipse at center, var(--sage) 0%, transparent 70%);
+  @keyframes scene-reveal {
+    from { clip-path: inset(0 0 0 100%); transform: translateX(12px); }
+    to { clip-path: inset(0); transform: translateX(0); }
   }
-  .hero-halo-gold {
-    right: -12%;
-    bottom: -32%;
-    background: radial-gradient(ellipse at center, #f3e9d3 0%, transparent 70%);
-    animation-duration: 46s;
-    animation-delay: -18s;
-    animation-direction: alternate-reverse;
+  .scene-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 12px;
   }
-  .hero-halo-forest {
-    left: 30%;
-    bottom: -46%;
-    background: radial-gradient(ellipse at center, #174a3a0d 0%, transparent 70%);
-    animation-duration: 52s;
-    animation-delay: -26s;
+  .scene-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--canvas);
+    color: var(--forest);
+    font-size: 12px;
   }
-  @keyframes halo-drift {
-    from { transform: translate3d(0, 0, 0) scale(1); }
-    to { transform: translate3d(24px, 16px, 0) scale(1.06); }
-  }
+  .scene-toggle[hidden] { display: none; }
+  .scene-toggle[aria-pressed="true"] { background: var(--sage); }
+  .scene-toggle[aria-pressed="true"] svg { display: none; }
+  .scene-toggle:disabled { cursor: default; }
+  .scene-toggle:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
   @media (max-width: 759px) {
-    .hero-halo {
-      width: 125vw;
-      height: 90vw;
-      opacity: 0.5;
-      animation-name: halo-drift-mobile;
-    }
-    .hero-halo-sage { top: -6%; left: -42%; }
-    .hero-halo-gold { right: -48%; bottom: -6%; }
-    .hero-halo-forest { display: none; }
-  }
-  @keyframes halo-drift-mobile {
-    from { transform: translate3d(0, 0, 0) scale(1); }
-    to { transform: translate3d(8px, 6px, 0) scale(1.025); }
+    .scene-window { aspect-ratio: 4 / 3; max-height: 320px; }
+    .hero-scene { object-position: center top; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero-halo { animation: none; }
+    .hero-scene.is-entering { animation: none; }
   }
 </style>
