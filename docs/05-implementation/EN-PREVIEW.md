@@ -15,7 +15,7 @@ Fecha: 2026-10-09. Diseño Pencil aprobado explícitamente por el usuario, inclu
 
 ## Formulario pendiente
 
-Revisión actual del dashboard: advanced-human-care tiene únicamente NODE_VERSION y ningún binding. La cuenta accesible e647ec8fc06db97c1deb3d61c290ab38 muestra dos proyectos; el legacy no está entre ellos. No se accede ni se inventa otro backend/proveedor. Se pidió al usuario referencia del repo o cuenta del legacy.
+Revisión actual del dashboard: advanced-human-care tiene únicamente NODE_VERSION y ningún binding. La cuenta accesible e647ec8fc06db97c1deb3d61c290ab38 muestra dos proyectos; el legacy no está entre ellos. El usuario indicó dejar pendiente esta integración si no puede recuperarse desde el sitio público. El sitio público permite comprobar campos y contrato del cliente, pero no secretos ni configuración de entrega. No se inventa otro backend/proveedor ni se considera bloqueada la revisión del frontend.
 
 Sin PUBLIC_TURNSTILE_SITE_KEY el envío permanece deshabilitado y se ofrece llamar. Falta configurar/verificar endpoint, secreto/widget y hosts admitidos, proveedor/destinatarios, límites y recepción real de una prueba identificada. No hay afirmación de equivalencia funcional completa todavía; /api/contact aún no existe en este repo. Las llamadas y enlaces de contacto funcionan.
 
@@ -31,7 +31,21 @@ Sin PUBLIC_TURNSTILE_SITE_KEY el envío permanece deshabilitado y se ofrece llam
 
 ## Publicación de revisión
 
-Se conserva noindex/nofollow en HTML y X-Robots-Tag. Cloudflare se despliega exclusivamente por GitHub; dominio legacy sin cambios. Exportaciones históricas de Pencil quedan locales e ignoradas en Git; el editable y las imágenes fuente quedan versionados. Falta revisión visual del usuario, integración real del formulario y cierre de SEO/rendimiento antes de dar EN por terminado y comenzar ES.
+Se conserva noindex/nofollow en HTML y X-Robots-Tag. Cloudflare se despliega exclusivamente por GitHub; dominio legacy sin cambios. Exportaciones históricas de Pencil quedan locales e ignoradas en Git; el editable y las imágenes fuente quedan versionados. El usuario revisó la vista y acepta el estado actual como base para nuevas pruebas. Esto no constituye autorización de lanzamiento: faltan integración real del formulario y cierre de calidad, SEO/rendimiento antes de dar EN por terminado y comenzar ES.
+
+## Responsive implementado
+
+Los puntos de cambio están en src/styles/global.css; la navegación también cierra el menú al pasar a escritorio mediante min-width: 1120px.
+
+| Ancho de viewport | Comportamiento |
+|---|---|
+| 1280 px o más | Escritorio completo; contenedor máximo de 1248 px |
+| 1120–1279 px | Escritorio compacto; márgenes de 32 px, logo de 165 px y menor separación de navegación |
+| 760–1119 px | Header con menú hamburguesa; columnas adaptadas a tablet; email y teléfono del formulario apilados |
+| 360–759 px | Secciones en una columna, márgenes de 24 px; dirección y horario alineados a la izquierda |
+| Menos de 360 px | Ajustes para pantallas pequeñas: CTA bajo selector EN/ES en menú y padding de formulario de 16 px |
+
+Queries CSS exactas: max-width: 1279px junto a min-width: 1120px; max-width: 1119px; max-width: 759px; max-width: 359px. También se respetan hover: hover y prefers-reduced-motion: reduce. Las pruebas previas en Chrome cubren 320, 390, 768, 1120 y 1440 px; no certifican otros navegadores.
 
 Referencias usadas: https://docs.astro.build/en/guides/images/ y https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/. No se incorporaron integraciones adicionales de compresión/critical CSS sin una necesidad medida; la página es estática, sin React ni hidratación de componentes.
 

@@ -1,6 +1,6 @@
-# Propuesta de estructura EN
+# Estructura EN
 
-Estado: propuesta para revisión; no constituye diseño aprobado. Una única página de contenido EN en `/`. ES se completará al final en `/es/`.
+Estado al 2026-10-09: estructura materializada en el diseño Pencil aprobado y en la implementación Astro EN revisada por el usuario. Una única página de contenido EN en `/`. ES se completará al final en `/es/`. El cuadro siguiente conserva la planificación editorial original; el estado implementado está en [EN-PREVIEW.md](../05-implementation/EN-PREVIEW.md).
 
 ## Secuencia propuesta
 
@@ -24,8 +24,10 @@ Estado: propuesta para revisión; no constituye diseño aprobado. Una única pá
 - Mantener identificadores actuales de anclas cuando sea viable para conservar enlaces existentes; documentar cualquier cambio.
 - No mostrar un selector español que apunte a una página incompleta. Resolver con el usuario la transición de la URL legacy `/es/` antes de cualquier publicación EN que la sustituya.
 
-## Próximo entregable visual
+## Plan visual original — completado
 
 Brand-board en Pencil: logo original, paleta nueva compatible con él, tipografía, iconografía, tratamiento de fotos, espaciado y ejemplos de botones/tarjetas. Después, diseño de escritorio y móvil de esta estructura para aprobación.
 
 Las primeras tres imágenes se generarán cuando se defina su composición en el diseño: candidatos hero, tratamiento y recuperación. Los otros espacios usarán placeholders. Las imágenes ilustrativas no se presentarán como fotografías documentales del equipo ni de las instalaciones reales.
+
+El brand-board, escritorio y móvil quedaron aprobados. Las revisiones posteriores de imágenes fueron solicitadas expresamente por el usuario; el editable y la biblioteca se conservan en pencil-design. Footer final: únicamente bottom bar con degradado, copyright y enlace de retorno arriba.

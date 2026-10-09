@@ -11,6 +11,8 @@
 
 ## Estado
 
+Actualizado 2026-10-09: frontend EN implementado en `codex/english-implementation`, revisado por el usuario y conservado como base para nuevas pruebas. Preview verificado: https://c1b9da74.advanced-human-care.pages.dev/, deployment `c1b9da74-c3a7-4660-8cae-a0f02b00702c`, commit `0eea8bd`. El check de GitHub también confirma éxito para el commit documental `ed4be1a`, deployment `666cbb64-eef9-45ee-9afd-7b145ccdb200`; su URL pública no se ha comprobado por separado. Producción permanece en `main` con la base inicial. No se ha conectado el dominio legacy ni fusionado esta implementación a producción.
+
 Proyecto Cloudflare Pages `advanced-human-care` creado y conectado al repo mediante la integración GitHub existente, sin modificar permisos. Dashboard confirma `Automatic deployments enabled`, producción en `main` y dominio `advanced-human-care.pages.dev`. No se ha cambiado el dominio ni el sitio legacy.
 
 Primer deployment: `6aa52425-9171-49da-98da-c532ecb5e870`, commit `a1eba5a137d83405c4a45662a1478a04f9dd7d2b`. Build y despliegue exitosos, también confirmados por el check `Cloudflare Pages` de GitHub. HTTP público 200, H1 Advanced Human Care, meta robots y cabecera X-Robots-Tag noindex/nofollow verificados.
@@ -20,9 +22,9 @@ Dashboard: https://dash.cloudflare.com/e647ec8fc06db97c1deb3d61c290ab38/pages/vi
 
 Prueba de push posterior a la conexión: commit `8a2897da11ea26098fc0c4e837a7b0d424188471` disparó automáticamente deployment `3b39befa-a476-4992-9bb3-09dcc8f69c5e`, exitoso según dashboard y check GitHub. Captura en `evidence/cloudflare-github-connected.png`. Conexión y automatización verificadas; formulario aún pendiente.
 
-El repo está en fase de documentación/diseño. Base mínima Astro 7.3.8 preparada para probar la integración sin anticipar el diseño. Página de prueba con meta robots y cabecera X-Robots-Tag noindex/nofollow. Retirar esta restricción solo cuando corresponda publicar el sitio aprobado.
+La base mínima inicial fue sustituida en la rama de implementación por el rediseño EN completo. Tanto la vista de revisión como la base de producción conservan meta robots y cabecera X-Robots-Tag noindex/nofollow. Retirar esta restricción solo cuando corresponda publicar el sitio aprobado.
 
-Node local 24.21.0, mismo valor configurado en `.node-version` y `NODE_VERSION` de Pages para producción y previews. `npm audit` final: 0 vulnerabilidades. Build local de Astro 7 bloqueado por Application Control sobre el binding nativo; no se modificaron protecciones. Astro 6.4.8 compiló en una prueba temporal, pero se descartó por vulnerabilidades; no usar ese build como prueba de la versión final. Astro 7.3.8 verificado mediante build remoto exitoso.
+Node local 24.21.0, mismo valor configurado en `.node-version` y `NODE_VERSION` de Pages para producción y previews. Astro 7.3.8: comprobación y build local exitosos, además del build remoto. El bloqueo previo de Application Control sobre el binding nativo ya no se reproduce; no se modificaron protecciones. La prueba temporal de Astro 6.4.8 fue descartada y no representa el estado actual. Evidencia de validación en docs/05-implementation/EN-PREVIEW.md.
 
 ## Configuración aplicada y pendientes
 
@@ -31,14 +33,14 @@ Node local 24.21.0, mismo valor configurado en `.node-version` y `NODE_VERSION` 
 - Producción: `main`; previews de ramas/PR según configuración acordada.
 - Build Astro: `npm run build`; salida: `dist`; raíz del proyecto: `/`.
 - Node 24.21.0 compatible con el requisito >=22.12.0 de Astro 7.3.8.
-- Variables, bindings y secretos del formulario: pendientes de inspección; no inventar configuración ni publicar secretos.
+- Dashboard inspeccionado: solo NODE_VERSION, sin bindings ni secretos de formulario configurados. Legacy no encontrado en la cuenta accesible. El usuario indicó dejar la integración pendiente por ahora; no inventar configuración ni publicar secretos. /api/contact aún no existe y el envío permanece deshabilitado sin Turnstile.
 - La verificación inicial será en el subdominio generado del nuevo proyecto. El dominio actual solo se conectará en la fase de publicación aprobada.
 - No ejecutar `wrangler deploy`, `wrangler pages deploy`, `vercel deploy` ni comandos equivalentes. Publicar mediante commit/push y comprobar deploy automático.
 
-## Evidencia necesaria para cerrar la conexión
+## Criterios de conexión — verificados para el frontend
 
 1. Proyecto Cloudflare muestra repo y rama correctos.
-2. Build/output correctos y configuración servidor documentada.
+2. Build/output correctos; configuración servidor del formulario pendiente por separado.
 3. Push dispara build automático y deployment exitoso para el commit correspondiente.
 4. URL pública del proyecto responde y corresponde al contenido de ese commit.
 
