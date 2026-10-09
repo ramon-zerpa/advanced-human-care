@@ -3,16 +3,32 @@ import sharp from 'sharp';
 
 // Preserve the source logo. SVG isolates its gold emblem and renders it white.
 const logo = (await readFile('brand/reference/advanced-human-care-logo-original.png')).toString('base64');
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <defs>
+const definitions = `<defs>
     <filter id="white-emblem" color-interpolation-filters="sRGB">
       <feColorMatrix in="SourceGraphic" result="white" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  8 -8 0 0 0"/>
       <feComposite in="white" in2="SourceAlpha" operator="in"/>
     </filter>
     <clipPath id="symbol-only"><rect width="74" height="95"/></clipPath>
-  </defs>
+  </defs>`;
+// Fit the actual visible emblem, rather than the original logo's empty canvas.
+const mask = `<svg xmlns="http://www.w3.org/2000/svg" width="215" height="95">${definitions}<g clip-path="url(#symbol-only)"><image width="215" height="95" href="data:image/png;base64,${logo}" filter="url(#white-emblem)"/></g></svg>`;
+const { data, info } = await sharp(Buffer.from(mask)).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+let left = info.width, top = info.height, right = -1, bottom = -1;
+for (let y = 0; y < info.height; y++) {
+  for (let x = 0; x < info.width; x++) {
+    if (data[(y * info.width + x) * 4 + 3] < 16) continue;
+    left = Math.min(left, x); right = Math.max(right, x);
+    top = Math.min(top, y); bottom = Math.max(bottom, y);
+  }
+}
+if (right < left) throw new Error('No visible emblem found in source logo.');
+const scale = Math.min(112 / (right - left + 1), 112 / (bottom - top + 1));
+const tx = 64 - scale * (left + right + 1) / 2;
+const ty = 64 - scale * (top + bottom + 1) / 2;
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  ${definitions}
   <rect width="128" height="128" rx="22" fill="#174A3A"/>
-  <g transform="translate(14 -1) scale(1.2)" clip-path="url(#symbol-only)">
+  <g transform="translate(${tx.toFixed(4)} ${ty.toFixed(4)}) scale(${scale.toFixed(4)})" clip-path="url(#symbol-only)">
     <image width="215" height="95" href="data:image/png;base64,${logo}" filter="url(#white-emblem)"/>
   </g>
 </svg>`;
