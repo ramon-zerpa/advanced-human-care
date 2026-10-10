@@ -1,0 +1,7 @@
+---
+import { headingId } from '../utils/heading-id';
+interface Props { level: 1 | 2 | 3 | 4 | 5 | 6; text: string; }
+const { level, text } = Astro.props;
+const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+---
+<Tag id={headingId(text)}><slot />{text}</Tag>

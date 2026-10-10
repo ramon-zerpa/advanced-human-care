@@ -2,10 +2,13 @@
 import { Image } from 'astro:assets';
 import image from '../assets/images/first-visit.png';
 import { faqs } from '../data/site';
+import Heading from "./Heading.astro";
+import { headingId } from "../utils/heading-id";
+const sectionTitle = "Before Your First Visit.";
 ---
-<section class="section first-visit" aria-labelledby="visit-title">
+<section class="section first-visit" aria-labelledby={headingId(sectionTitle)}>
   <div class="container split-layout">
-    <div class="split-intro visit-intro"><h2 id="visit-title">Before Your First Visit.</h2><p>Learn what happens at your evaluation and how to request an appointment.</p><div class="visit-image"><Image src={image} alt="Illustrative scene of a therapist assessing a patient's movement." width={880} height={660} widths={[360, 440, 680, 880]} sizes="(min-width: 1120px) 440px, (min-width: 760px) 40vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo visit-photo" /></div></div>
-    <div class="faq-list">{faqs.map(item => <article><h3>{item.question}</h3><p>{item.answer}</p></article>)}</div>
+    <div class="split-intro visit-intro"><Heading level={2} text={sectionTitle} /><p>Learn what happens at your evaluation and how to request an appointment.</p><div class="visit-image"><Image src={image} alt="Illustrative scene of a therapist assessing a patient's movement." width={880} height={660} widths={[360, 440, 680, 880]} sizes="(min-width: 1120px) 440px, (min-width: 760px) 40vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo visit-photo" /></div></div>
+    <div class="faq-list">{faqs.map(item => <article><Heading level={3} text={item.question} /><p>{item.answer}</p></article>)}</div>
   </div>
 </section>

@@ -3,13 +3,17 @@ import { clinic } from '../data/site';
 import Icon from './Icon.astro';
 const sitekey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 const enabled = Boolean(sitekey);
+import Heading from "./Heading.astro";
+import { headingId } from "../utils/heading-id";
+const sectionTitle = "Start Your Recovery.";
+const formTitle = "Request Physical Rehabilitation.";
 ---
-<section id="contact-us" class="section canvas" aria-labelledby="contact-title">
+<section id="contact-us" class="section canvas" aria-labelledby={headingId(sectionTitle)}>
   <div class="container">
-    <div class="section-intro contact-intro"><h2 id="contact-title">Start Your Recovery.</h2><p>Request physical rehabilitation at Advanced Human Care. Tell us how to reach you.</p></div>
+    <div class="section-intro contact-intro"><Heading level={2} text={sectionTitle} /><p>Request physical rehabilitation at Advanced Human Care. Tell us how to reach you.</p></div>
     <div class="contact-layout">
       <div class="contact-details">
-        <h3>Visit Our Tampa Clinic.</h3>
+        <Heading level={3} text="Visit Our Tampa Clinic." />
         <div class="contact-channels">
           <a href={clinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" /><span>{clinic.address}<span class="sr-only"> (opens in a new tab)</span></span></a>
           <a href={clinic.phoneHref}><Icon name="Phone" /><span>{clinic.phone}</span></a>
@@ -18,12 +22,12 @@ const enabled = Boolean(sitekey);
         </div>
         <p class="fax">Fax: {clinic.fax}</p>
         <div class="map-shell" data-map-shell>
-          <div class="map-placeholder"><Icon name="Map" size={40} /><h4>Find Our Tampa Clinic.</h4><a href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a></div>
+          <div class="map-placeholder"><Icon name="Map" size={40} /><Heading level={4} text="Find Our Tampa Clinic." /><a href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a></div>
         </div>
         <a class="map-external" href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a>
       </div>
-      <form id="appointment-form" class="appointment-form" method="post" action="/api/contact" data-sitekey={sitekey} aria-labelledby="form-title">
-        <div class="form-heading"><h3 id="form-title">Request Physical Rehabilitation.</h3><p>Fields marked * are required.</p></div>
+      <form id="appointment-form" class="appointment-form" method="post" action="/api/contact" data-sitekey={sitekey} aria-labelledby={headingId(formTitle)}>
+        <div class="form-heading"><Heading level={3} text={formTitle} /><p>Fields marked * are required.</p></div>
         <div class="field"><label for="contact-name">Full name *</label><input id="contact-name" name="name" autocomplete="name" required maxlength="100" placeholder="Your full name" /></div>
         <div class="field-row">
           <div class="field"><label for="contact-email">Email *</label><input id="contact-email" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="Your email address" /></div>

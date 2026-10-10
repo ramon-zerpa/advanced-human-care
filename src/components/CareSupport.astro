@@ -1,12 +1,15 @@
 ---
 import Icon from './Icon.astro';
+import Heading from "./Heading.astro";
+import { headingId } from "../utils/heading-id";
+const sectionTitle = "Support Beyond Your Treatment.";
 ---
-<section class="section care-support" aria-labelledby="support-title">
+<section class="section care-support" aria-labelledby={headingId(sectionTitle)}>
   <div class="container split-layout">
-    <div class="split-intro"><h2 id="support-title">Support Beyond Your Treatment.</h2><p>As you focus on recovery, our team helps with medical documentation and treatment arrangements.</p><a href="#contact-us" class="button button-light">Talk to our team<Icon name="ArrowUpRight" size={18} /></a></div>
+    <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>As you focus on recovery, our team helps with medical documentation and treatment arrangements.</p><a href="#contact-us" class="button button-light">Talk to our team<Icon name="ArrowUpRight" size={18} /></a></div>
     <div class="support-items">
-      <article><h3><Icon name="FileText" size={26} />Legal Documentation.</h3><p>We maintain detailed medical records of your condition and treatments, and provide this documentation to your attorney.</p></article>
-      <article><h3><Icon name="ShieldCheck" size={26} />We Accept Your Auto Insurance.</h3><p>We work on a medical lien. A medical lien means the insurance companies will pay us once your case is resolved.</p></article>
+      <article><Heading level={3} text="Legal Documentation."><Icon name="FileText" size={26} /></Heading><p>We maintain detailed medical records of your condition and treatments, and provide this documentation to your attorney.</p></article>
+      <article><Heading level={3} text="We Accept Your Auto Insurance."><Icon name="ShieldCheck" size={26} /></Heading><p>We work on a medical lien. A medical lien means the insurance companies will pay us once your case is resolved.</p></article>
     </div>
   </div>
 </section>
