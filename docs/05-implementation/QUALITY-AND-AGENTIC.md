@@ -29,4 +29,31 @@ Astro check: 0 errores, warnings e hints. Build exitoso. El HTML no contiene una
 - https://github.com/GoogleChrome/lighthouse/issues/17251
 - https://github.com/GoogleChrome/lighthouse/blob/v13.5.0/third-party/ard/ard.js
 
-La verificación publicada y las mediciones posteriores se registran al completar el push y el deployment automático.
+## Resultado publicado — db1de36
+
+Cloudflare Pages completed/success, deployment c1771342-6c5f-487c-853a-f100061107d5. HTTP 200 y tipos correctos verificados para robots.txt, llms.txt, ard.json y la guía SKILL.md. HTML público sin stylesheet externo, con catálogo anunciado y candidato 640w.
+
+| Categoría | Móvil | Escritorio |
+| --- | ---: | ---: |
+| Performance | 100 | 100 |
+| Accessibility | 100 | 100 |
+| Best Practices | 100 | 100 |
+| SEO | 66 | 66 |
+| Agentic Browsing | 4/4 | 4/4 |
+
+Agentic: pasan agent-accessibility-tree, cumulative-layout-shift, llms-txt y ard-schema. Tres checks WebMCP siguen notApplicable. No se anuncia un valor 100 ni funcionalidad WebMCP inexistente.
+
+PSI Lighthouse 13.5.0: tres solicitudes estándar por dispositivo; tres timestamps independientes móvil y dos escritorio, porque Google devolvió exactamente el mismo timestamp en escritorio runs 1/2. El duplicado se excluye de las medianas. Sin errores de ejecución. Una solicitud Agentic por dispositivo, separada. Medidas estándar UTC 2026-10-10T02:53:05.858Z a 02:53:50.369Z, fecha local 2026-10-09.
+
+| Métrica | Antes móvil (1 run) | Después móvil (mediana 3) | Antes escritorio (1 run) | Después escritorio (mediana 2) |
+| --- | ---: | ---: | ---: | ---: |
+| LCP | 1501 ms | 1351 ms | 321 ms | 321,5 ms |
+| FCP | 1051 ms | 785 ms | 241 ms | 223 ms |
+| TBT | 0 ms | 0 ms | 0 ms | 0 ms |
+| CLS | 0 | 0 | 0,000192 | 0,000096 |
+
+La comparación no detectó diferencias de versión o settings. Baseline y resultado son mediciones en momentos distintos; la mejora observada no promete los mismos tiempos en cada visita. No hay métricas CrUX de campo disponibles en estos resultados.
+
+Desaparecen CSS bloqueante, cadena de dependencias y oportunidad de tamaño del hero en los runs posteriores. SEO mejora 58 → 66 por robots.txt válido; conserva bloqueo deliberado de indexación, pendiente del lanzamiento final. Persiste una oportunidad estimada de compresión de ~4,9 KB en la foto de Recovery en escritorio, sin impacto en el hero ni el score 100; no se degrada la fotografía aprobada para eliminar ese aviso pequeño.
+
+Evidencia resumida versionada: quality-evidence/2026-10-09.json. Respuestas completas y comparación guardadas en las carpetas de visualizaciones pagespeed-db1de36, agentic-db1de36 y quality-improvements/comparison.json. Check/build y prueba visual previos corresponden a este mismo código. El commit posterior de documentación/evidencia no altera el sitio.

@@ -1,0 +1,416 @@
+{
+  "codeRevision": "db1de36",
+  "origin": "https://advanced-human-care.pages.dev",
+  "standard": [
+    {
+      "device": "mobile",
+      "run": 1,
+      "fetchedAt": "2026-10-10T02:53:05.858Z",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "emulatedFormFactor": "mobile",
+        "formFactor": "mobile",
+        "locale": "en-US",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "channel": "lr"
+      },
+      "scores": {
+        "performance": 1,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66
+      },
+      "metrics": {
+        "first-contentful-paint": 785,
+        "largest-contentful-paint": 1352,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 2210.998741775642
+      },
+      "failures": [
+        {
+          "id": "speed-index",
+          "title": "Speed Index"
+        },
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing"
+        }
+      ]
+    },
+    {
+      "device": "desktop",
+      "run": 1,
+      "fetchedAt": "2026-10-10T02:53:17.878Z",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "emulatedFormFactor": "desktop",
+        "formFactor": "desktop",
+        "locale": "en-US",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "channel": "lr"
+      },
+      "scores": {
+        "performance": 1,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66
+      },
+      "metrics": {
+        "first-contentful-paint": 226,
+        "largest-contentful-paint": 322,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.0001916679313719433,
+        "speed-index": 339.60689353517074
+      },
+      "failures": [
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery"
+        }
+      ]
+    },
+    {
+      "device": "mobile",
+      "run": 2,
+      "fetchedAt": "2026-10-10T02:53:29.251Z",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "emulatedFormFactor": "mobile",
+        "formFactor": "mobile",
+        "locale": "en-US",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "channel": "lr"
+      },
+      "scores": {
+        "performance": 1,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66
+      },
+      "metrics": {
+        "first-contentful-paint": 769,
+        "largest-contentful-paint": 1351,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 769
+      },
+      "failures": [
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing"
+        }
+      ]
+    },
+    {
+      "device": "desktop",
+      "run": 2,
+      "fetchedAt": "2026-10-10T02:53:17.878Z",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "emulatedFormFactor": "desktop",
+        "formFactor": "desktop",
+        "locale": "en-US",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "channel": "lr"
+      },
+      "scores": {
+        "performance": 1,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66
+      },
+      "metrics": {
+        "first-contentful-paint": 226,
+        "largest-contentful-paint": 322,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.0001916679313719433,
+        "speed-index": 339.60689353517074
+      },
+      "failures": [
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery"
+        }
+      ]
+    },
+    {
+      "device": "mobile",
+      "run": 3,
+      "fetchedAt": "2026-10-10T02:53:40.109Z",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "emulatedFormFactor": "mobile",
+        "formFactor": "mobile",
+        "locale": "en-US",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "channel": "lr"
+      },
+      "scores": {
+        "performance": 1,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66
+      },
+      "metrics": {
+        "first-contentful-paint": 792,
+        "largest-contentful-paint": 1212,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.0005035699405633668,
+        "speed-index": 792
+      },
+      "failures": [
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing"
+        }
+      ]
+    },
+    {
+      "device": "desktop",
+      "run": 3,
+      "fetchedAt": "2026-10-10T02:53:50.369Z",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "emulatedFormFactor": "desktop",
+        "formFactor": "desktop",
+        "locale": "en-US",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "channel": "lr"
+      },
+      "scores": {
+        "performance": 1,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66
+      },
+      "metrics": {
+        "first-contentful-paint": 220,
+        "largest-contentful-paint": 321,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 315.5666654092842
+      },
+      "failures": [
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery"
+        },
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing"
+        }
+      ]
+    }
+  ],
+  "agenticBefore": [
+    {
+      "device": "mobile",
+      "fetchedAt": "2026-10-10T02:46:54.166Z",
+      "checks": [
+        {
+          "id": "agent-accessibility-tree",
+          "score": 1,
+          "mode": "binary"
+        },
+        {
+          "id": "webmcp-form-coverage",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-registered-tools",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-schema-validity",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "cumulative-layout-shift",
+          "score": 1,
+          "mode": "numeric"
+        },
+        {
+          "id": "llms-txt",
+          "score": 0,
+          "mode": "binary"
+        },
+        {
+          "id": "ard-schema",
+          "score": 0,
+          "mode": "binary"
+        }
+      ]
+    },
+    {
+      "device": "desktop",
+      "fetchedAt": "2026-10-10T02:47:03.973Z",
+      "checks": [
+        {
+          "id": "agent-accessibility-tree",
+          "score": 1,
+          "mode": "binary"
+        },
+        {
+          "id": "webmcp-form-coverage",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-registered-tools",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-schema-validity",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "cumulative-layout-shift",
+          "score": 1,
+          "mode": "numeric"
+        },
+        {
+          "id": "llms-txt",
+          "score": 0,
+          "mode": "binary"
+        },
+        {
+          "id": "ard-schema",
+          "score": 0,
+          "mode": "binary"
+        }
+      ]
+    }
+  ],
+  "agenticAfter": [
+    {
+      "device": "mobile",
+      "fetchedAt": "2026-10-10T02:54:01.094Z",
+      "lighthouseVersion": "13.5.0",
+      "checks": [
+        {
+          "id": "agent-accessibility-tree",
+          "score": 1,
+          "mode": "binary"
+        },
+        {
+          "id": "webmcp-form-coverage",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-registered-tools",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-schema-validity",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "cumulative-layout-shift",
+          "score": 1,
+          "mode": "numeric"
+        },
+        {
+          "id": "llms-txt",
+          "score": 1,
+          "mode": "binary"
+        },
+        {
+          "id": "ard-schema",
+          "score": 1,
+          "mode": "binary"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "device": "desktop",
+      "fetchedAt": "2026-10-10T02:54:08.895Z",
+      "lighthouseVersion": "13.5.0",
+      "checks": [
+        {
+          "id": "agent-accessibility-tree",
+          "score": 1,
+          "mode": "binary"
+        },
+        {
+          "id": "webmcp-form-coverage",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-registered-tools",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "webmcp-schema-validity",
+          "score": null,
+          "mode": "notApplicable"
+        },
+        {
+          "id": "cumulative-layout-shift",
+          "score": 1,
+          "mode": "numeric"
+        },
+        {
+          "id": "llms-txt",
+          "score": 1,
+          "mode": "binary"
+        },
+        {
+          "id": "ard-schema",
+          "score": 1,
+          "mode": "binary"
+        }
+      ],
+      "failures": []
+    }
+  ]
+}
