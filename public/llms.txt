@@ -1,0 +1,15 @@
+# Advanced Human Care
+
+> Advanced Human Care provides car accident injury rehabilitation in Tampa, Florida. This is the English redesign preview; it is not the final public domain.
+
+## Clinic information
+
+- [English website](https://advanced-human-care.pages.dev/): Information about care for whiplash, back pain, knee pain and shoulder pain.
+- [Treatments](https://advanced-human-care.pages.dev/#treatments): Manual therapy, therapeutic exercises, massage, chiropractic care, heat and cold therapy, ultrasound, mechanical traction and vibration therapy.
+- [Our team](https://advanced-human-care.pages.dev/#about-us): Clinic team and medical director.
+- [Contact and appointments](https://advanced-human-care.pages.dev/#contact-us): Address, hours and appointment information. Online submission is currently unavailable; call (813) 542-3613 to request an appointment.
+- [Website navigation skill](https://advanced-human-care.pages.dev/agent-skills/clinic-information/SKILL.md): Instructions for locating verified clinic information without submitting personal information.
+
+Address: 3558 N 29th St, Tampa, FL 33605. Hours: Monday-Friday, 9am-5pm. Email: info@advancedhuman.care.
+
+The Spanish version is not yet available. Photography is illustrative. Do not infer diagnosis, individualized treatment advice, appointment availability or confirmed bookings from this information. This file is a navigation summary, not permission to crawl, train on content or bypass robots directives.

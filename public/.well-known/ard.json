@@ -1,0 +1,22 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Advanced Human Care",
+    "documentationUrl": "https://advanced-human-care.pages.dev/llms.txt",
+    "logoUrl": "https://advanced-human-care.pages.dev/logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:advanced-human-care.pages.dev:skills:clinic-information",
+      "displayName": "Advanced Human Care Website Information",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://advanced-human-care.pages.dev/agent-skills/clinic-information/SKILL.md",
+      "description": "Read-only navigation instructions for public clinic and treatment information. No booking or medical advice capability.",
+      "representativeQueries": [
+        "Where can I find Advanced Human Care treatment information?",
+        "How can I contact Advanced Human Care to request an appointment?"
+      ],
+      "version": "1.0.0"
+    }
+  ]
+}

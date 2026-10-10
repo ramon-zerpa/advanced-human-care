@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import headingFont from '@fontsource/lora/files/lora-latin-600-italic.woff2?url';
 import bodyFont from '@fontsource/noto-sans/files/noto-sans-latin-400-normal.woff2?url';
+import buttonFont from '@fontsource/noto-sans/files/noto-sans-latin-600-normal.woff2?url';
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
 ---
@@ -19,6 +20,8 @@ const { title, description } = Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <link rel="preload" href={headingFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={buttonFont} as="font" type="font/woff2" crossorigin />
+    <link rel="ai-catalog" href="/.well-known/ard.json" />
     <title>{title}</title>
   </head>
   <body><a class="skip-link" href="#main-content">Skip to content</a><slot /></body>
