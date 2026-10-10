@@ -5,12 +5,15 @@ import neck from '../assets/images/hero-whiplash.png';
 import { clinic } from '../data/site';
 import Icon from './Icon.astro';
 import AppointmentButton from './AppointmentButton.astro';
+import { headingId } from '../utils/heading-id';
+const title = 'Car Accident Rehabilitation In Tampa.';
+const titleId = headingId(title);
 ---
-<section class="hero canvas" aria-labelledby="hero-title">
+<section class="hero canvas" aria-labelledby={titleId}>
   <div class="container">
     <div class="hero-layout">
       <div class="hero-copy">
-        <h1 id="hero-title">Car Accident Rehabilitation In Tampa.</h1>
+        <h1 id={titleId}>{title}</h1>
         <p>At Advanced Human Care, our therapists are highly skilled experts in treating injuries you may have sustained in a car accident.</p>
         <p>Get your lifestyle back with physical rehabilitation focused on your recovery.</p>
         <div class="hero-actions"><AppointmentButton /><a href={clinic.phoneHref} class="button button-outline"><Icon name="Phone" size={18} /><span>{clinic.phone}</span></a></div>
@@ -19,7 +22,7 @@ import AppointmentButton from './AppointmentButton.astro';
         <div class="hero-editorial">
           <div class="editorial-main">
             <div class="editorial-entry"><div class="editorial-hover">
-              <Image src={neck} alt="Car Accident Rehabilitation In Tampa." width={1160} height={870} widths={[360, 580, 640, 800, 1044, 1160]} sizes="(min-width: 1280px) 522px, (min-width: 1120px) calc(45vw - 47px), (min-width: 760px) calc(45vw - 58px), calc(100vw - 48px)" format="webp" quality={82} loading="eager" fetchpriority="high" />
+              <Image src={neck} alt={title} width={1160} height={870} widths={[360, 580, 640, 800, 1044, 1160]} sizes="(min-width: 1280px) 522px, (min-width: 1120px) calc(45vw - 47px), (min-width: 760px) calc(45vw - 58px), calc(100vw - 48px)" format="webp" quality={82} loading="eager" fetchpriority="high" />
             </div></div>
           </div>
           <div class="editorial-detail">

@@ -5,3 +5,4 @@
 - If unsupported or blocked, report that fact explicitly instead of dropping the category or inventing a value.
 - Preserve the approved design and the preview's noindex/nofollow until the user authorizes the final domain launch. Do not invent functioning appointment APIs or enable the pending form to satisfy audits.
 - Deploy via the existing GitHub-to-Cloudflare integration with commit/push; no manual deploy commands. Git identity is local to this repository.
+- H1 IDs must derive from their actual localized title: lowercase words separated by hyphens, with accents and punctuation removed. Use src/utils/heading-id.ts in both EN and the future ES version; keep aria-labelledby synchronized with the generated ID.
