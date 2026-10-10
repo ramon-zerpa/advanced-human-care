@@ -13,3 +13,11 @@ El usuario solicita ID del H1 derivado de su texto: car-accident-rehabilitation-
 El usuario rechaza el Child personalizado y pide elegir desde el set. Se crea una galería local reproducible con tools/create-icon-gallery.mjs, usando los SVG del paquete Lucide instalado, con nueve opciones iniciales y buscador sobre los 2130 nombres disponibles (incluidos alias). HTML generado fuera del sitio, servido solo en localhost:4322. No se sustituye el icono hasta recibir su selección.
 
 Check/build correctos. Chrome local confirma H1 ID único y referencia aria-labelledby idéntica; búsqueda PersonStanding muestra una opción. No se ejecutó un nuevo PageSpeed en este ajuste; no se omite Agentic del último informe de calidad citado arriba.
+
+## Selección final y entrada de servicios
+
+El usuario selecciona HeartHandshake de Lucide para Get Your Lifestyle Back. Se sustituye Child y se elimina su SVG personalizado de Icon.astro. Conserva tamaño 28 y color Forest.
+
+Los cuatro bloques de lesiones/servicios tienen una entrada única al intersectar el viewport (threshold 0,15): opacidad y translateY, 650 ms, escalonado de 0/90/180/270 ms en escritorio. En móvil, desplazamiento reducido de 16 a 10 px y sin retraso individual. CSS desactiva la entrada con prefers-reduced-motion; el script omite el observer si esa preferencia está activa. Contenido visible por defecto sin JavaScript o sin IntersectionObserver. Observer deja de observar cada bloque tras su entrada y se desconecta al completar los cuatro o abandonar la página.
+
+Check/build correctos. Chrome a 1440 y 390 px confirma cuatro bloques revelados, delays previstos y sin overflow horizontal. No se cambian títulos, contenido, espaciado, CTA ni IDs. No se ejecuta otro PageSpeed por este ajuste acotado; métricas de calidad/Agentic anteriores siguen vinculadas a db1de36. Preferencia de movimiento reducido verificada en código, no mediante cambio de la configuración del sistema.
