@@ -30,11 +30,11 @@ import InjuryIcon from './InjuryIcon.astro';
 <style>
   /* Visible by default, including without JavaScript; each block enters only once. */
   .injury-grid > article.is-revealed {
-    animation: injury-enter 650ms cubic-bezier(.22, 1, .36, 1) both;
+    animation: injury-enter 1200ms cubic-bezier(.25, .1, .25, 1) both;
   }
-  .injury-grid > article:nth-child(2) { animation-delay: 90ms; }
-  .injury-grid > article:nth-child(3) { animation-delay: 180ms; }
-  .injury-grid > article:nth-child(4) { animation-delay: 270ms; }
+  .injury-grid > article:nth-child(2) { animation-delay: 180ms; }
+  .injury-grid > article:nth-child(3) { animation-delay: 360ms; }
+  .injury-grid > article:nth-child(4) { animation-delay: 540ms; }
   @keyframes injury-enter {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
