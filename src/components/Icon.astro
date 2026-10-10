@@ -2,7 +2,12 @@
 import { icons } from 'lucide';
 interface Props { name: string; size?: number; class?: string; }
 const { name, size = 22, class: className } = Astro.props;
-const nodes = icons[name as keyof typeof icons];
+// Child is a local outline variant: raised arms, matching the existing icon stroke.
+const child: [string, Record<string, string>][] = [
+  ['circle', { cx: '12', cy: '4', r: '2' }],
+  ['path', { d: 'M12 9v6M5 6l7 4 7-4M12 15l-4 7M12 15l4 7' }],
+];
+const nodes = name === 'Child' ? child : icons[name as keyof typeof icons];
 if (!nodes) throw new Error(`Unknown icon: ${name}`);
 ---
 <svg class={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
