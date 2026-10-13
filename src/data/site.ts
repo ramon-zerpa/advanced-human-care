@@ -152,7 +152,7 @@ export const spanish = {
     imageAlt: "Escena ilustrativa de una terapeuta evaluando la espalda de un paciente.",
     focus: "Terapia manual enfocada en su recuperación.",
     items: [
-      { title: "Terapia manual", copy: "La terapia manual, también llamada terapia física práctica, no utiliza dispositivos ni máquinas. Por lo general, incluye trabajo de tejidos blandos y movilización articular." },
+      { title: "Terapia manual", copy: "La terapia manual se realiza con las manos, sin dispositivos ni máquinas. Por lo general, incluye trabajo de tejidos blandos y movilización articular." },
       { title: "Ejercicios terapéuticos", copy: "Los ejercicios terapéuticos son movimientos planificados y sistemáticos para mejorar la función física, la flexibilidad, la fuerza y la resistencia." },
       { title: "Terapia de masaje", copy: "El masaje puede ayudar a relajar los músculos antes de un ajuste quiropráctico u otra terapia. También puede ser beneficioso por sí solo después de un accidente de auto." },
       { title: "Atención quiropráctica", copy: "La atención quiropráctica incluye ajustes que buscan aliviar el dolor y mejorar la movilidad, así como modalidades terapéuticas que apoyan los ajustes articulares." },
@@ -198,7 +198,7 @@ export const spanish = {
     imageAlt: "Escena ilustrativa de un terapeuta evaluando el movimiento de un paciente.",
     faqs: [
       { question: "¿Qué puedo esperar en mi primera cita?", answer: "Su terapeuta evaluará su fuerza y rango de movimiento, y realizará pruebas específicas para conocer sus lesiones y desarrollar un plan de tratamiento." },
-      { question: "¿Qué lesiones tratan?", answer: "Ofrecemos rehabilitación para latigazo cervical, dolor de espalda, rodilla y hombro después de un accidente de auto. Nuestros tratamientos incluyen atención práctica, ejercicios terapéuticos y las otras terapias descritas arriba." },
+      { question: "¿Qué lesiones tratan?", answer: "Ofrecemos rehabilitación para latigazo cervical y dolor de espalda, de rodilla y de hombro después de un accidente de auto. Nuestros tratamientos incluyen terapia manual, ejercicios terapéuticos y las otras terapias descritas arriba." },
       { question: "¿Cómo solicito una cita?", answer: `Use el formulario para ingresar su nombre, correo electrónico y teléfono. También puede indicar una fecha preferida y agregar un mensaje. Si lo prefiere, llame al ${clinic.phone}.` },
     ],
   },
