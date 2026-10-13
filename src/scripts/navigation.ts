@@ -17,7 +17,7 @@ if (toggle && menu) {
   toggle.addEventListener("click", () => setOpen(Boolean(menu.hidden)));
   document.addEventListener("click", (event) => {
     const link = (event.target as Element).closest<HTMLAnchorElement>(
-      '.logo-link[href^="#"], .desktop-navigation a[href^="#"], .mobile-menu-links a[href^="#"], .skip-link[href^="#"], .bottom-bar a[href^="#"]',
+      'a[href^="#"]',
     );
     if (!link) return;
     event.preventDefault();

@@ -92,8 +92,9 @@ blockquote {
   margin: 0;
 }
 :focus-visible {
-  outline: 3px solid var(--gold-ink);
-  outline-offset: 5px;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--forest);
 }
 [hidden] {
   display: none !important;
@@ -210,6 +211,7 @@ blockquote {
 }
 .topbar a {
   color: white;
+  min-height: 24px;
 }
 .topbar-inner {
   display: flex;
@@ -885,6 +887,7 @@ blockquote {
   }
   .topbar-mobile-phone {
     display: flex;
+    min-height: 44px;
   }
   .topbar-inner {
     justify-content: center;

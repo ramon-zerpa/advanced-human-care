@@ -126,17 +126,10 @@ const titleId = headingId(title);
     box-shadow: var(--button-shadow);
     font: italic 600 24px/1.2 var(--font-heading);
   }
-  /* Separate layers keep entrance, ambient drift and hover from competing. */
-  .is-introduced .editorial-main { animation: editorial-float 10s 650ms ease-in-out infinite; }
-  .is-introduced .editorial-detail { animation: editorial-float 12s 770ms ease-in-out infinite; }
-  .is-introduced .editorial-message { animation: editorial-float 11s 840ms ease-in-out infinite; }
+  /* Entrance motion is brief and plays only once. */
   .is-introduced .editorial-main .editorial-entry { animation: editorial-main-in 650ms cubic-bezier(.22,.61,.36,1) both; }
   .is-introduced .editorial-detail .editorial-entry { animation: editorial-detail-in 650ms 120ms cubic-bezier(.22,.61,.36,1) both; }
   .is-introduced .editorial-message .editorial-entry { animation: editorial-message-in 600ms 240ms cubic-bezier(.22,.61,.36,1) both; }
-  @keyframes editorial-float {
-    0%, 100% { transform: translateY(0) rotate(var(--tilt)); }
-    50% { transform: translateY(-5px) rotate(var(--tilt)); }
-  }
   @keyframes editorial-main-in {
     from { transform: translateY(20px); }
     to { transform: translateY(0); }
@@ -174,7 +167,6 @@ const titleId = headingId(title);
     .editorial-detail { display: none; }
     .editorial-message { left: 4px; right: 20px; bottom: 0; max-width: none; }
     .editorial-message p { padding: 16px; font-size: 21px; }
-    .is-introduced .editorial-main, .is-introduced .editorial-message { animation-name: editorial-float-mobile; }
     .is-introduced .editorial-main .editorial-entry { animation: editorial-mobile-in 550ms ease-out both; }
     .is-introduced .editorial-detail { animation: none; }
     .is-introduced .editorial-message .editorial-entry { animation: editorial-mobile-in 550ms 80ms ease-out both; }
@@ -182,13 +174,8 @@ const titleId = headingId(title);
       from { transform: translateY(8px); }
       to { transform: translateY(0); }
     }
-    @keyframes editorial-float-mobile {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-2px); }
-    }
   }
   @media (prefers-reduced-motion: reduce) {
-    .is-introduced .editorial-main, .is-introduced .editorial-detail, .is-introduced .editorial-message,
     .is-introduced .editorial-main .editorial-entry,
     .is-introduced .editorial-detail .editorial-entry,
     .is-introduced .editorial-message .editorial-entry { animation: none; }
