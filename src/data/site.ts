@@ -12,7 +12,7 @@ export const clinic = {
   email: "info@advancedhuman.care",
   address: clinicAddress,
   addressLabel: `${clinicAddress.streetAddress}, ${clinicAddress.addressLocality}, ${clinicAddress.addressRegion} ${clinicAddress.postalCode}`,
-  hours: "Mon–Fri · 9am–5pm",
+  hours: "Mon–Fri · 9 a.m.–5 p.m.",
   fax: "(813) 200-3496",
   maps: "https://www.google.com/maps/search/?api=1&query=3558+N+29th+St+Tampa+FL+33605",
 };
@@ -26,22 +26,22 @@ export const injuries = [
   {
     title: "Whiplash",
     icon: "neck" as const,
-    copy: "We offer a variety of options to help relieve your pain and recover from whiplash injuries.",
+    copy: "We offer treatment options to relieve pain and support recovery from whiplash injuries.",
   },
   {
     title: "Back Pain",
     icon: "back" as const,
-    copy: "We can effectively treat lower, middle, and upper back injuries from a car accident.",
+    copy: "We treat lower, middle, and upper back injuries caused by car accidents.",
   },
   {
     title: "Knee Pain",
     icon: "knee" as const,
-    copy: "Our therapy regimens include a combination of exercises to achieve strength and flexibility.",
+    copy: "Our therapy plans combine exercises to build strength and flexibility.",
   },
   {
     title: "Shoulder Pain",
     icon: "shoulder" as const,
-    copy: "Physical rehabilitation can help you reduce or prevent the long-term effects of your injuries.",
+    copy: "Physical rehabilitation can help reduce pain and the risk of long-term effects from shoulder injuries.",
   },
 ];
 export const treatments = [
@@ -51,23 +51,23 @@ export const treatments = [
   },
   {
     title: "Therapeutic Exercises",
-    copy: "Therapeutic exercises are the systematic and planned performance of body movements that aim to enhance and restore physical function, flexibility, strength, and endurance.",
+    copy: "Therapeutic exercises are planned, systematic movements designed to improve physical function, flexibility, strength, and endurance.",
   },
   {
     title: "Massage Therapy",
-    copy: "Massage can help loosen your muscles before a chiropractic adjustment or other therapies, and it is also a great option on its own after a car accident.",
+    copy: "Massage can help loosen your muscles before a chiropractic adjustment or another therapy. It can also be beneficial on its own after a car accident.",
   },
   {
     title: "Chiropractic Care",
-    copy: "There are two types: Manipulations are adjustments made to your joints that relieve pain and improve mobility. Modalities are procedures that make it easier to adjust your joints.",
+    copy: "Chiropractic care includes adjustments, which aim to relieve pain and improve mobility, and modalities, which use therapeutic procedures to support joint adjustments.",
   },
   {
-    title: "Heat And Cold Therapy",
+    title: "Heat and Cold Therapy",
     copy: "Thermotherapy (heat) and cryotherapy (cold) are used in rehabilitation treatments. Heat increases blood flow and decreases joint stiffness. Cold reduces inflammation and nerve activity.",
   },
   {
     title: "Ultrasound Therapy",
-    copy: "The ultrasound helps heal muscle pain and reduces inflammation. It is used in muscle tissue. Ultrasound is a way to treat swelling problems in muscles, joints and ligaments.",
+    copy: "Ultrasound therapy can help relieve muscle pain and reduce inflammation. It can also help reduce swelling in the muscles, joints, and ligaments.",
   },
   {
     title: "Mechanical Traction",
@@ -75,7 +75,7 @@ export const treatments = [
   },
   {
     title: "Vibration Therapy",
-    copy: "Low-frequency vibration helps relax compressed tissues and restore their functionality. When the vibrations are transmitted to your body, they cause your muscles to contract and relax.",
+    copy: "Low-frequency vibration helps relax compressed tissues and restore their function. The vibrations cause your muscles to contract and relax.",
   },
 ];
 export const team = [
@@ -96,23 +96,23 @@ export const testimonials = [
     name: "Emily Vasquez",
     initial: "E",
     quote:
-      "Since the accident, I was suffering from terrible neck pain! Thanks to my therapist I have relieved my injuries.",
+      "Since the accident, I have suffered from terrible neck pain. Thanks to my therapist, I have found relief.",
   },
 ];
 export const faqs = [
   {
-    question: "What Can I Expect At My First Appointment?",
+    question: "What Can I Expect at My First Appointment?",
     answer:
       "Your therapist will evaluate your strength and range of motion and perform special tests to get a complete picture of your injuries and develop a treatment plan.",
   },
   {
     question: "Which Injuries Do You Treat?",
     answer:
-      "We provide rehabilitation for whiplash, back pain, knee pain and shoulder pain after a car accident. Our treatments include hands-on care, therapeutic exercises and the other therapies described above.",
+      "We provide rehabilitation for whiplash, back pain, knee pain, and shoulder pain after a car accident. Our treatments include hands-on care, therapeutic exercises, and the other therapies described above.",
   },
   {
-    question: "How Do I Request An Appointment?",
+    question: "How Do I Request an Appointment?",
     answer:
-      "Use the appointment form below and enter your name, email and phone number. You can also include a preferred date and a message. Or call (813) 542-3613.",
+      "Use the appointment form below to enter your name, email address, and phone number. You can also include a preferred date and a message. You can also call (813) 542-3613.",
   },
 ];

@@ -15,9 +15,9 @@ const testimonialTitle = "What Our Patients Say.";
       <Image src={image} alt="Illustrative scene of a woman enjoying a walk outdoors." width={1000} height={750} widths={[360, 500, 750, 1000]} sizes="(min-width: 1120px) 500px, (min-width: 760px) 45vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo recovery-photo" />
       <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>If you have been in a car accident, you may be wondering why physical rehabilitation is necessary. After a car accident, physical rehabilitation can help reduce pain, speed recovery, and improve range of motion.</p><p>Immediate treatment of car accident injuries can help you recover more quickly and avoid further injury.</p><AppointmentButton /></div>
     </div>
-    <div id="testimonials" class="testimonials" aria-labelledby={headingId(testimonialTitle)}>
+    <section id="testimonials" class="testimonials" aria-labelledby={headingId(testimonialTitle)}>
       <Heading level={3} text={testimonialTitle} />
-      <div class="testimonial-grid">{testimonials.map(item => <figure><Icon name="Quote" size={28} class="quote-icon" /><blockquote><p>“{item.quote}”</p></blockquote><figcaption><span class="initial" aria-hidden="true">{item.initial}</span><span>{item.name}</span></figcaption></figure>)}</div>
-    </div>
+      <ul class="testimonial-grid">{testimonials.map(item => <li><figure><Icon name="Quote" size={28} class="quote-icon" /><blockquote><p>“{item.quote}”</p></blockquote><figcaption><span class="initial" aria-hidden="true">{item.initial}</span><span>{item.name}</span></figcaption></figure></li>)}</ul>
+    </section>
   </div>
 </section>

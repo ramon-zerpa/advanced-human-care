@@ -6,7 +6,7 @@ import { clinic } from '../data/site';
 import Icon from './Icon.astro';
 import AppointmentButton from './AppointmentButton.astro';
 import { headingId } from '../utils/heading-id';
-const title = 'Car Accident Rehabilitation In Tampa.';
+const title = 'Car Accident Rehabilitation in Tampa.';
 const titleId = headingId(title);
 ---
 <section class="hero canvas" aria-labelledby={titleId}>
@@ -14,7 +14,7 @@ const titleId = headingId(title);
     <div class="hero-layout">
       <div class="hero-copy">
         <h1 id={titleId}>{title}</h1>
-        <p>At Advanced Human Care, our therapists are highly skilled experts in treating injuries you may have sustained in a car accident.</p>
+        <p>At Advanced Human Care, our therapists are highly skilled in treating injuries you may have sustained in a car accident.</p>
         <p>Get your lifestyle back with physical rehabilitation focused on your recovery.</p>
         <div class="hero-actions"><AppointmentButton /><a href={clinic.phoneHref} class="button button-outline"><Icon name="Phone" size={18} /><span>{clinic.phone}</span></a></div>
       </div>
@@ -27,7 +27,7 @@ const titleId = headingId(title);
           </div>
           <div class="editorial-detail">
             <div class="editorial-entry"><div class="editorial-hover">
-              <Image src={care} alt="Care For Common Car Accident Injuries." width={580} height={435} widths={[200, 360, 580]} sizes="(min-width: 1120px) 209px, (min-width: 760px) 18vw, 1px" format="webp" quality={82} loading="lazy" fetchpriority="low" />
+              <Image src={care} alt="Care for Common Car Accident Injuries." width={580} height={435} widths={[200, 360, 580]} sizes="(min-width: 1120px) 209px, (min-width: 760px) 18vw, 1px" format="webp" quality={82} loading="lazy" fetchpriority="low" />
             </div></div>
           </div>
           <div class="editorial-message">
@@ -38,10 +38,10 @@ const titleId = headingId(title);
         </div>
       </div>
     </div>
-    <div class="hero-details">
+    <address class="hero-details">
       <a href={clinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" size={20} /><span>{clinic.addressLabel}</span><span class="sr-only"> (opens in a new tab)</span></a>
       <p><Icon name="Clock3" size={20} /><span>{clinic.hours}</span></p>
-    </div>
+    </address>
   </div>
 </section>
 

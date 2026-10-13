@@ -10,16 +10,16 @@ const formTitle = "Request Physical Rehabilitation.";
 ---
 <section id="contact-us" class="section canvas" aria-labelledby={headingId(sectionTitle)}>
   <div class="container">
-    <div class="section-intro contact-intro"><Heading level={2} text={sectionTitle} /><p>Request physical rehabilitation at Advanced Human Care.</p></div>
     <div class="contact-layout">
       <div class="contact-details">
+        <div class="section-intro contact-intro"><Heading level={2} text={sectionTitle} /><p>Request physical rehabilitation at Advanced Human Care.</p></div>
         <Heading level={3} text="Visit Our Tampa Clinic." />
-        <div class="contact-channels">
+        <address class="contact-channels">
           <a href={clinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" /><span>{clinic.addressLabel}<span class="sr-only"> (opens in a new tab)</span></span></a>
           <a href={clinic.phoneHref}><Icon name="Phone" /><span>{clinic.phone}</span></a>
           <a href={`mailto:${clinic.email}`}><Icon name="Mail" /><span>{clinic.email}</span></a>
           <p><Icon name="Clock3" /><span>{clinic.hours}</span></p>
-        </div>
+        </address>
         <p class="fax">Fax: {clinic.fax}</p>
         <div class="map-shell" data-map-shell>
           <div class="map-placeholder"><Icon name="Map" size={40} /><Heading level={4} text="Find Our Tampa Clinic." /><a href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a></div>

@@ -7,7 +7,7 @@ const sectionTitle = "Our Team.";
 ---
 <section id="about-us" class="section team-section" aria-labelledby={headingId(sectionTitle)}>
   <div class="container split-layout">
-    <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>At Advanced Human Care, we are specialists in car accident injury rehabilitation. Our therapists are qualified experts in treating injuries you may have suffered.</p><p>The goal of physical rehabilitation is to help you repair and strengthen damaged muscles and tissues.</p><AppointmentButton /></div>
-    <div class="team-grid">{team.map((member, index) => <div class:list={['team-member', { 'team-director': index === 0 }]}><Heading level={3} text={member.name} /><p>{member.role}</p></div>)}</div>
+    <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>At Advanced Human Care, we specialize in car accident injury rehabilitation. Our therapists treat injuries you may have sustained.</p><p>The goal of physical rehabilitation is to help you repair and strengthen damaged muscles and tissues.</p><AppointmentButton /></div>
+    <ul class="team-grid">{team.map((member, index) => <li class:list={['team-member', { 'team-director': index === 0 }]}><Heading level={3} text={member.name} /><p>{member.role}</p></li>)}</ul>
   </div>
 </section>

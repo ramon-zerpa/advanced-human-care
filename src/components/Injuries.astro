@@ -3,17 +3,17 @@ import { injuries } from '../data/site';
 import InjuryIcon from './InjuryIcon.astro';
 import Heading from "./Heading.astro";
 import { headingId } from "../utils/heading-id";
-const sectionTitle = "Care For Common Car Accident Injuries.";
+const sectionTitle = "Care for Common Car Accident Injuries.";
 ---
 <section class="section injuries" aria-labelledby={headingId(sectionTitle)}>
   <div class="container">
     <div class="section-intro"><Heading level={2} text={sectionTitle} /><p>Our rehabilitation team helps you recover from injuries sustained in a car accident.</p></div>
-    <div class="injury-grid">{injuries.map(item => <article><span class="injury-icon"><InjuryIcon area={item.icon} /></span><div class="injury-copy"><Heading level={3} text={item.title} /><p>{item.copy}</p></div></article>)}</div>
+    <ul class="injury-grid">{injuries.map(item => <li><article><span class="injury-icon"><InjuryIcon area={item.icon} /></span><div class="injury-copy"><Heading level={3} text={item.title} /><p>{item.copy}</p></div></article></li>)}</ul>
   </div>
 </section>
 
 <script>
-  const items = document.querySelectorAll<HTMLElement>('.injury-grid > article');
+  const items = document.querySelectorAll<HTMLElement>('.injury-grid > li');
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let remaining = items.length;
     const observer = new IntersectionObserver(entries => {
@@ -32,24 +32,24 @@ const sectionTitle = "Care For Common Car Accident Injuries.";
 
 <style>
   /* Visible by default, including without JavaScript; each block enters only once. */
-  .injury-grid > article.is-revealed {
+  .injury-grid > li.is-revealed {
     animation: injury-enter 1200ms cubic-bezier(.25, .1, .25, 1) both;
   }
-  .injury-grid > article:nth-child(2) { animation-delay: 180ms; }
-  .injury-grid > article:nth-child(3) { animation-delay: 360ms; }
-  .injury-grid > article:nth-child(4) { animation-delay: 540ms; }
+  .injury-grid > li:nth-child(2) { animation-delay: 180ms; }
+  .injury-grid > li:nth-child(3) { animation-delay: 360ms; }
+  .injury-grid > li:nth-child(4) { animation-delay: 540ms; }
   @keyframes injury-enter {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @media (max-width: 759px) {
-    .injury-grid > article.is-revealed { animation-delay: 0ms; }
+    .injury-grid > li.is-revealed { animation-delay: 0ms; }
     @keyframes injury-enter {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .injury-grid > article.is-revealed { animation: none; }
+    .injury-grid > li.is-revealed { animation: none; }
   }
 </style>

@@ -13,9 +13,9 @@ const sectionTitle = "Our Treatments.";
     <div class="treatment-layout">
       <div class="treatment-media">
         <Image src={image} alt="Illustrative scene of a female therapist assessing a male patient's back." width={800} height={600} widths={[360, 440, 680, 800]} sizes="(min-width: 1120px) 400px, (min-width: 760px) 35vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo treatment-photo" />
-        <Heading level={3} text="Hands-On Care, Focused On Recovery." /><AppointmentButton class="treatment-cta" />
+        <Heading level={3} text="Hands-On Care Focused on Recovery." /><AppointmentButton class="treatment-cta" />
       </div>
-      <div class="treatment-grid">{treatments.map(item => <article><Heading level={3} text={item.title} /><p>{item.copy}</p></article>)}</div>
+      <ul class="treatment-grid">{treatments.map(item => <li><Heading level={3} text={item.title} /><p>{item.copy}</p></li>)}</ul>
     </div>
   </div>
 </section>

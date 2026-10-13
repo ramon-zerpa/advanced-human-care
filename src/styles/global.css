@@ -398,6 +398,7 @@ blockquote {
   padding-top: 20px;
   border-top: 1px solid var(--border);
   font-size: 14px;
+  font-style: normal;
 }
 .hero-details > a,
 .hero-details > p {
@@ -413,6 +414,14 @@ blockquote {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 32px;
+}
+.injury-grid,
+.treatment-grid,
+.team-grid,
+.testimonial-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .injury-grid article {
   display: grid;
@@ -455,7 +464,7 @@ blockquote {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px 40px;
 }
-.treatment-grid article {
+.treatment-grid li {
   border-bottom: 1px solid var(--border);
   padding-bottom: 20px;
 }
@@ -613,8 +622,8 @@ blockquote {
   font-size: 23px;
   margin-bottom: 16px;
 }
-.contact-intro {
-  margin-bottom: 48px;
+.contact-details > .contact-intro {
+  margin-bottom: 0;
 }
 .contact-layout {
   display: grid;
@@ -632,6 +641,7 @@ blockquote {
 .contact-channels {
   display: grid;
   gap: 18px;
+  font-style: normal;
 }
 .contact-channels > a,
 .contact-channels > p {
@@ -1062,9 +1072,6 @@ blockquote {
   }
   .faq-list h3 {
     font-size: 24px;
-  }
-  .contact-intro {
-    margin-bottom: 32px;
   }
   .contact-layout {
     gap: 40px;

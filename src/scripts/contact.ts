@@ -116,9 +116,9 @@ if (form && submit) {
           verification_failed:
             "Security verification could not be confirmed. Please verify again and retry.",
           missing_fields:
-            "Please enter your full name, email and phone number.",
+            "Please enter your full name, email, and phone number.",
           invalid_fields:
-            "Please check your name, email and phone number and try again.",
+            "Please check your name, email, and phone number and try again.",
           rate_limited:
             "Please wait a moment before trying again, or call (813) 542-3613.",
         };
