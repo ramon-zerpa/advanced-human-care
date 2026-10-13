@@ -1,9 +1,17 @@
+const clinicAddress = {
+  streetAddress: "3558 N 29th St",
+  addressLocality: "Tampa",
+  addressRegion: "FL",
+  postalCode: "33605",
+  addressCountry: "US",
+};
 export const clinic = {
   name: "Advanced Human Care",
   phone: "(813) 542-3613",
   phoneHref: "tel:+18135423613",
   email: "info@advancedhuman.care",
-  address: "3558 N 29th St, Tampa, FL 33605",
+  address: clinicAddress,
+  addressLabel: `${clinicAddress.streetAddress}, ${clinicAddress.addressLocality}, ${clinicAddress.addressRegion} ${clinicAddress.postalCode}`,
   hours: "Mon–Fri · 9am–5pm",
   fax: "(813) 200-3496",
   maps: "https://www.google.com/maps/search/?api=1&query=3558+N+29th+St+Tampa+FL+33605",

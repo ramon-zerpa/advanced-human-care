@@ -1,10 +1,50 @@
 ---
 import '../styles/global.css';
+import { clinic, treatments } from '../data/site';
 import headingFont from '@fontsource/lora/files/lora-latin-600-italic.woff2?url';
 import bodyFont from '@fontsource/noto-sans/files/noto-sans-latin-400-normal.woff2?url';
 import buttonFont from '@fontsource/noto-sans/files/noto-sans-latin-600-normal.woff2?url';
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
+const siteUrl = Astro.site!;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const logoUrl = new URL('/logo.png', siteUrl).href;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalClinic",
+      "@id": `${siteUrl.href}#clinic`,
+      name: clinic.name,
+      url: siteUrl.href,
+      logo: logoUrl,
+      description,
+      telephone: clinic.phoneHref.replace(/^tel:/, ''),
+      faxNumber: clinic.fax,
+      email: clinic.email,
+      address: { "@type": "PostalAddress", ...clinic.address },
+      availableService: treatments.map(({ title: name, copy: description }) => ({
+        "@type": "MedicalTherapy",
+        name,
+        description,
+      })),
+      openingHoursSpecification: [{
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      }],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl.href}#website`,
+      name: clinic.name,
+      url: siteUrl.href,
+      publisher: { "@id": `${siteUrl.href}#clinic` },
+      inLanguage: "en-US",
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -13,6 +53,20 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={clinic.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={logoUrl} />
+    <meta property="og:image:alt" content={`${clinic.name} logo`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={logoUrl} />
+    <meta name="twitter:image:alt" content={`${clinic.name} logo`} />
     <meta name="theme-color" content="#174A3A" />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -23,6 +77,7 @@ const { title, description } = Astro.props;
     <link rel="preload" href={buttonFont} as="font" type="font/woff2" crossorigin />
     <link rel="ai-catalog" href="/.well-known/ard.json" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body><a class="skip-link" href="#main-content">Skip to content</a><slot /></body>
 </html>

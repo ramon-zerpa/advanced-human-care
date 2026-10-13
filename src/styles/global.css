@@ -842,9 +842,6 @@ blockquote {
   .desktop-header-actions {
     gap: 12px;
   }
-  .logo-link img {
-    width: 165px;
-  }
   .hero-layout {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -884,10 +881,7 @@ blockquote {
     min-height: 44px;
   }
   .navigation-bar {
-    padding-block: 16px;
-  }
-  .logo-link img {
-    width: 140px;
+    padding-block: 12px;
   }
   .no-script-menu {
     display: flex;

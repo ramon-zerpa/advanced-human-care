@@ -15,15 +15,17 @@ if (toggle && menu) {
     if (closeIcon) closeIcon.hidden = !open;
   };
   toggle.addEventListener("click", () => setOpen(Boolean(menu.hidden)));
-  menu.addEventListener("click", (event) => {
+  document.addEventListener("click", (event) => {
     const link = (event.target as Element).closest<HTMLAnchorElement>(
-      'a[href^="#"]',
+      '.logo-link[href^="#"], .desktop-navigation a[href^="#"], .mobile-menu-links a[href^="#"]',
     );
     if (!link) return;
-    setOpen(false);
-    const target = document.querySelector<HTMLElement>(link.hash);
+    event.preventDefault();
+    if (menu.contains(link)) setOpen(false);
+    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
     if (target) {
       target.setAttribute("tabindex", "-1");
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
       target.focus({ preventScroll: true });
     }
   });
