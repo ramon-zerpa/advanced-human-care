@@ -1,21 +1,25 @@
 ---
 import { Image } from 'astro:assets';
 import image from '../assets/images/treatments-back.png';
-import { treatments } from '../data/site';
+import { treatments, spanish } from '../data/site';
 import AppointmentButton from './AppointmentButton.astro';
 import Heading from "./Heading.astro";
 import { headingId } from "../utils/heading-id";
-const sectionTitle = "Our Treatments.";
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const content = locale === 'es' ? spanish.treatments : null;
+const items = content?.items ?? treatments;
+const sectionTitle = content?.title ?? "Our Treatments.";
 ---
 <section id="treatments" class="section canvas" aria-labelledby={headingId(sectionTitle)}>
   <div class="container">
-    <div class="section-intro"><Heading level={2} text={sectionTitle} /><p>During your appointment, your therapist will evaluate your strength and range of motion to develop a treatment plan.</p></div>
+    <div class="section-intro"><Heading level={2} text={sectionTitle} /><p>{content?.intro ?? 'During your appointment, your therapist will evaluate your strength and range of motion to develop a treatment plan.'}</p></div>
     <div class="treatment-layout">
       <div class="treatment-media">
-        <Image src={image} alt="Illustrative scene of a female therapist assessing a male patient's back." width={800} height={600} widths={[360, 440, 680, 800]} sizes="(min-width: 1120px) 400px, (min-width: 760px) 35vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo treatment-photo" />
-        <Heading level={3} text="Hands-On Care Focused on Recovery." /><AppointmentButton class="treatment-cta" />
+        <Image src={image} alt={content?.imageAlt ?? "Illustrative scene of a female therapist assessing a male patient's back."} width={800} height={600} widths={[360, 440, 680, 800]} sizes="(min-width: 1120px) 400px, (min-width: 760px) 35vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo treatment-photo" />
+        <Heading level={3} text={content?.focus ?? 'Hands-On Care Focused on Recovery.'} /><AppointmentButton class="treatment-cta" locale={locale} />
       </div>
-      <ul class="treatment-grid">{treatments.map(item => <li><Heading level={3} text={item.title} /><p>{item.copy}</p></li>)}</ul>
+      <ul class="treatment-grid">{items.map(item => <li><Heading level={3} text={item.title} /><p>{item.copy}</p></li>)}</ul>
     </div>
   </div>
 </section>

@@ -1,4 +1,9 @@
-<div class="language-switcher" role="group" aria-label="Website language">
-  <span class="language-active" lang="en" aria-current="page">EN<span class="sr-only"> — English, current language</span></span>
-  <button class="language-pending" type="button" disabled aria-label="Español — próximamente" title="Spanish version coming soon" lang="es">ES</button>
+---
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const isSpanish = locale === 'es';
+---
+<div class="language-switcher" role="group" aria-label={isSpanish ? 'Idioma del sitio' : 'Website language'}>
+  {isSpanish ? <a class="language-link" href="/" lang="en" aria-label="English">EN</a> : <span class="language-active" lang="en" aria-current="page">EN<span class="sr-only"> — English, current language</span></span>}
+  {isSpanish ? <span class="language-active" lang="es" aria-current="page">ES<span class="sr-only"> — Español, idioma actual</span></span> : <a class="language-link" href="/es/" lang="es" aria-label="Español">ES</a>}
 </div>

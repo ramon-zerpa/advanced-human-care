@@ -295,7 +295,7 @@ blockquote {
   background: var(--sage);
 }
 .language-switcher > span,
-.language-switcher > button {
+.language-switcher > a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -306,6 +306,8 @@ blockquote {
   font-size: 13px;
   font-weight: 600;
 }
+.language-link { color: var(--forest); text-decoration: none; }
+.language-link:hover { text-decoration: underline; }
 .language-active {
   color: white;
   background: var(--forest);

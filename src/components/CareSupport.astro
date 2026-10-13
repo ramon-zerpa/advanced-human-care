@@ -2,14 +2,20 @@
 import Icon from './Icon.astro';
 import Heading from "./Heading.astro";
 import { headingId } from "../utils/heading-id";
-const sectionTitle = "Support Beyond Your Treatment.";
+import { spanish } from '../data/site';
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const content = locale === 'es' ? spanish.careSupport : null;
+const sectionTitle = content?.title ?? "Support Beyond Your Treatment.";
+const itemTitles = content?.items.map(item => item.title) ?? ["Legal Documentation.", "We Accept Your Auto Insurance."];
+const itemCopies = content?.items.map(item => item.copy) ?? ["We maintain detailed medical records of your condition and treatments, and provide this documentation to your attorney.", "We work on a medical lien. A medical lien means the insurance companies will pay us once your case is resolved."];
 ---
 <section class="section care-support" aria-labelledby={headingId(sectionTitle)}>
   <div class="container split-layout">
-    <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>As you focus on recovery, our team helps with medical documentation and treatment arrangements.</p><a href="#contact-us" class="button button-light">Talk to our team<Icon name="ArrowUpRight" size={18} /></a></div>
+    <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>{content?.intro ?? 'As you focus on recovery, our team helps with medical documentation and treatment arrangements.'}</p><a href="#contact-us" class="button button-light">{content?.cta ?? 'Talk to our team'}<Icon name="ArrowUpRight" size={18} /></a></div>
     <div class="support-items">
-      <article><Heading level={3} text="Legal Documentation."><Icon name="FileText" size={26} /></Heading><p>We maintain detailed medical records of your condition and treatments, and provide this documentation to your attorney.</p></article>
-      <article><Heading level={3} text="We Accept Your Auto Insurance."><Icon name="ShieldCheck" size={26} /></Heading><p>We work on a medical lien. A medical lien means the insurance companies will pay us once your case is resolved.</p></article>
+      <article><Heading level={3} text={itemTitles[0]}><Icon name="FileText" size={26} /></Heading><p>{itemCopies[0]}</p></article>
+      <article><Heading level={3} text={itemTitles[1]}><Icon name="ShieldCheck" size={26} /></Heading><p>{itemCopies[1]}</p></article>
     </div>
   </div>
 </section>

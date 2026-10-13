@@ -1,23 +1,26 @@
 ---
 import { Image } from 'astro:assets';
 import image from '../assets/images/recovery.png';
-import { testimonials } from '../data/site';
+import { testimonials, spanish } from '../data/site';
 import Icon from './Icon.astro';
 import AppointmentButton from './AppointmentButton.astro';
 import Heading from "./Heading.astro";
 import { headingId } from "../utils/heading-id";
-const sectionTitle = "Get Your Lifestyle Back.";
-const testimonialTitle = "What Our Patients Say.";
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const content = locale === 'es' ? spanish.recovery : null;
+const sectionTitle = content?.title ?? "Get Your Lifestyle Back.";
+const testimonialTitle = content?.testimonialsTitle ?? "What Our Patients Say.";
 ---
 <section class="section canvas" aria-labelledby={headingId(sectionTitle)}>
   <div class="container">
     <div class="recovery-layout">
-      <Image src={image} alt="Illustrative scene of a woman enjoying a walk outdoors." width={1000} height={750} widths={[360, 500, 750, 1000]} sizes="(min-width: 1120px) 500px, (min-width: 760px) 45vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo recovery-photo" />
-      <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>If you have been in a car accident, you may be wondering why physical rehabilitation is necessary. After a car accident, physical rehabilitation can help reduce pain, speed recovery, and improve range of motion.</p><p>Immediate treatment of car accident injuries can help you recover more quickly and avoid further injury.</p><AppointmentButton /></div>
+      <Image src={image} alt={content?.imageAlt ?? 'Illustrative scene of a woman enjoying a walk outdoors.'} width={1000} height={750} widths={[360, 500, 750, 1000]} sizes="(min-width: 1120px) 500px, (min-width: 760px) 45vw, calc(100vw - 48px)" format="webp" quality={80} loading="lazy" class="photo recovery-photo" />
+      <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>{content?.paragraphs[0] ?? 'If you have been in a car accident, you may be wondering why physical rehabilitation is necessary. After a car accident, physical rehabilitation can help reduce pain, speed recovery, and improve range of motion.'}</p><p>{content?.paragraphs[1] ?? 'Immediate treatment of car accident injuries can help you recover more quickly and avoid further injury.'}</p><AppointmentButton locale={locale} /></div>
     </div>
     <section id="testimonials" class="testimonials" aria-labelledby={headingId(testimonialTitle)}>
       <Heading level={3} text={testimonialTitle} />
-      <ul class="testimonial-grid">{testimonials.map(item => <li><figure><Icon name="Quote" size={28} class="quote-icon" /><blockquote><p>“{item.quote}”</p></blockquote><figcaption><span class="initial" aria-hidden="true">{item.initial}</span><span>{item.name}</span></figcaption></figure></li>)}</ul>
+      <ul class="testimonial-grid">{testimonials.map((item, index) => <li><figure><Icon name="Quote" size={28} class="quote-icon" /><blockquote><p>“{content?.testimonials[index] ?? item.quote}”</p></blockquote><figcaption><span class="initial" aria-hidden="true">{item.initial}</span><span>{item.name}</span></figcaption></figure></li>)}</ul>
     </section>
   </div>
 </section>

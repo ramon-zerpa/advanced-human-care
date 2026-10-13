@@ -1,47 +1,52 @@
 ---
-import { clinic } from '../data/site';
+import { clinic, spanish } from '../data/site';
 import Icon from './Icon.astro';
 const sitekey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 const enabled = Boolean(sitekey);
 import Heading from "./Heading.astro";
 import { headingId } from "../utils/heading-id";
-const sectionTitle = "Start Your Recovery.";
-const formTitle = "Request Physical Rehabilitation.";
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const isSpanish = locale === 'es';
+const localClinic = isSpanish ? spanish.clinic : clinic;
+const content = isSpanish ? spanish.contact : null;
+const sectionTitle = content?.title ?? "Start Your Recovery.";
+const formTitle = content?.formTitle ?? "Request Physical Rehabilitation.";
 ---
 <section id="contact-us" class="section canvas" aria-labelledby={headingId(sectionTitle)}>
   <div class="container">
     <div class="contact-layout">
       <div class="contact-details">
-        <div class="section-intro contact-intro"><Heading level={2} text={sectionTitle} /><p>Request physical rehabilitation at Advanced Human Care.</p></div>
-        <Heading level={3} text="Visit Our Tampa Clinic." />
+        <div class="section-intro contact-intro"><Heading level={2} text={sectionTitle} /><p>{content?.intro ?? 'Request physical rehabilitation at Advanced Human Care.'}</p></div>
+        <Heading level={3} text={content?.clinicTitle ?? 'Visit Our Tampa Clinic.'} />
         <address class="contact-channels">
-          <a href={clinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" /><span>{clinic.addressLabel}<span class="sr-only"> (opens in a new tab)</span></span></a>
-          <a href={clinic.phoneHref}><Icon name="Phone" /><span>{clinic.phone}</span></a>
-          <a href={`mailto:${clinic.email}`}><Icon name="Mail" /><span>{clinic.email}</span></a>
-          <p><Icon name="Clock3" /><span>{clinic.hours}</span></p>
+          <a href={localClinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" /><span>{localClinic.addressLabel}<span class="sr-only">{isSpanish ? ' (se abre en una pestaña nueva)' : ' (opens in a new tab)'}</span></span></a>
+          <a href={localClinic.phoneHref}><Icon name="Phone" /><span>{localClinic.phone}</span></a>
+          <a href={`mailto:${localClinic.email}`}><Icon name="Mail" /><span>{localClinic.email}</span></a>
+          <p><Icon name="Clock3" /><span>{localClinic.hours}</span></p>
         </address>
-        <p class="fax">Fax: {clinic.fax}</p>
+        <p class="fax">Fax: {localClinic.fax}</p>
         <div class="map-shell" data-map-shell>
-          <div class="map-placeholder"><Icon name="Map" size={40} /><Heading level={4} text="Find Our Tampa Clinic." /><a href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a></div>
+          <div class="map-placeholder"><Icon name="Map" size={40} /><Heading level={4} text={content?.findTitle ?? 'Find Our Tampa Clinic.'} /><a href={localClinic.maps} target="_blank" rel="noopener noreferrer">{content?.mapLink ?? 'Open in Google Maps'}<Icon name="ArrowUpRight" size={18} /><span class="sr-only">{isSpanish ? ' (se abre en una pestaña nueva)' : ' (opens in a new tab)'}</span></a></div>
         </div>
-        <a class="map-external" href={clinic.maps} target="_blank" rel="noopener noreferrer">Open in Google Maps<Icon name="ArrowUpRight" size={18} /><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="map-external" href={localClinic.maps} target="_blank" rel="noopener noreferrer">{content?.mapLink ?? 'Open in Google Maps'}<Icon name="ArrowUpRight" size={18} /><span class="sr-only">{isSpanish ? ' (se abre en una pestaña nueva)' : ' (opens in a new tab)'}</span></a>
       </div>
-      <form id="appointment-form" class="appointment-form" method="post" action="/api/contact" data-sitekey={sitekey} aria-labelledby={headingId(formTitle)}>
-        <div class="form-heading"><Heading level={3} text={formTitle} /><p>Fields marked * are required.</p></div>
-        <div class="field"><label for="contact-name">Full name *</label><input id="contact-name" name="name" autocomplete="name" required maxlength="100" placeholder="Your full name" /></div>
+      <form id="appointment-form" class="appointment-form" method="post" action="/api/contact" data-sitekey={sitekey} data-locale={locale} aria-labelledby={headingId(formTitle)}>
+        <div class="form-heading"><Heading level={3} text={formTitle} /><p>{content?.required ?? 'Fields marked * are required.'}</p></div>
+        <div class="field"><label for="contact-name">{content?.labels.name ?? 'Full name *'}</label><input id="contact-name" name="name" autocomplete="name" required maxlength="100" placeholder={content?.placeholders.name ?? 'Your full name'} /></div>
         <div class="field-row">
-          <div class="field"><label for="contact-email">Email *</label><input id="contact-email" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="Your email address" /></div>
-          <div class="field"><label for="contact-phone">Phone *</label><input id="contact-phone" type="tel" name="phone" autocomplete="tel" required maxlength="30" placeholder="Your phone number" /></div>
+          <div class="field"><label for="contact-email">{content?.labels.email ?? 'Email *'}</label><input id="contact-email" type="email" name="email" autocomplete="email" required maxlength="254" placeholder={content?.placeholders.email ?? 'Your email address'} /></div>
+          <div class="field"><label for="contact-phone">{content?.labels.phone ?? 'Phone *'}</label><input id="contact-phone" type="tel" name="phone" autocomplete="tel" required maxlength="30" placeholder={content?.placeholders.phone ?? 'Your phone number'} /></div>
         </div>
-        <div class="field"><label for="contact-date">Desired date (optional)</label><input id="contact-date" type="date" name="date" /></div>
-        <div class="field"><label for="contact-message">Message (optional)</label><textarea id="contact-message" name="message" maxlength="2000" placeholder="Tell us how we can help." rows="4"></textarea></div>
+        <div class="field"><label for="contact-date">{content?.labels.date ?? 'Desired date (optional)'}</label><input id="contact-date" type="date" name="date" /></div>
+        <div class="field"><label for="contact-message">{content?.labels.message ?? 'Message (optional)'}</label><textarea id="contact-message" name="message" maxlength="2000" placeholder={content?.placeholders.message ?? 'Tell us how we can help.'} rows="4"></textarea></div>
         <div class="verification-shell" data-verification>
-          <div class="verification-placeholder"><Icon name="ShieldCheck" size={24} /><span>Security verification<small>Cloudflare Turnstile</small></span></div>
+          <div class="verification-placeholder"><Icon name="ShieldCheck" size={24} /><span>{content?.security ?? 'Security verification'}<small>Cloudflare Turnstile</small></span></div>
         </div>
-        <button type="submit" class="button button-primary form-submit" disabled={!enabled} data-submit><span data-submit-label>Send appointment request</span><Icon name="ArrowUpRight" size={18} /></button>
+        <button type="submit" class="button button-primary form-submit" disabled={!enabled} data-submit><span data-submit-label>{content?.send ?? 'Send appointment request'}</span><Icon name="ArrowUpRight" size={18} /></button>
         <p class="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
-        {!enabled && <p class="form-unavailable">Online requests will be available soon. Please <a href={clinic.phoneHref}>call {clinic.phone}</a> to request an appointment.</p>}
-        <noscript><p class="form-unavailable">Please enable JavaScript for security verification, or <a href={clinic.phoneHref}>call {clinic.phone}</a> to request an appointment.</p></noscript>
+        {!enabled && <p class="form-unavailable">{isSpanish ? <>Las solicitudes en línea estarán disponibles pronto. Para solicitar una cita, <a href={localClinic.phoneHref}>llame al {localClinic.phone}</a>.</> : <>Online requests will be available soon. Please <a href={localClinic.phoneHref}>call {localClinic.phone}</a> to request an appointment.</>}</p>}
+        <noscript><p class="form-unavailable">{isSpanish ? <>Active JavaScript para la verificación de seguridad o <a href={localClinic.phoneHref}>llame al {localClinic.phone}</a> para solicitar una cita.</> : <>Please enable JavaScript for security verification, or <a href={localClinic.phoneHref}>call {localClinic.phone}</a> to request an appointment.</>}</p></noscript>
       </form>
     </div>
   </div>

@@ -116,3 +116,106 @@ export const faqs = [
       "Use the appointment form below to enter your name, email address, and phone number. You can also include a preferred date and a message. You can also call (813) 542-3613.",
   },
 ];
+
+/** Spanish copy mirrors the reviewed English content without adding clinical claims. */
+export const spanish = {
+  clinic: { ...clinic, hours: "Lun–Vie · 9 a. m.–5 p. m." },
+  navigation: [
+    { label: "Tratamientos", href: "#treatments" },
+    { label: "Nosotros", href: "#about-us" },
+    { label: "Testimonios", href: "#testimonials" },
+    { label: "Contacto", href: "#contact-us" },
+  ],
+  hero: {
+    title: "Rehabilitación por accidentes de auto en Tampa.",
+    paragraphs: [
+      "En Advanced Human Care, nuestros terapeutas tienen amplia experiencia en el tratamiento de lesiones que pudo haber sufrido en un accidente de auto.",
+      "Recupere su estilo de vida con rehabilitación física enfocada en su recuperación.",
+    ],
+    imageAlt: "Atención para lesiones comunes por accidentes de auto.",
+    message: "Recupere su estilo de vida.",
+    address: `${clinicAddress.streetAddress}, ${clinicAddress.addressLocality}, Florida ${clinicAddress.postalCode}`,
+  },
+  injuries: {
+    title: "Atención para lesiones comunes por accidentes de auto.",
+    intro: "Nuestro equipo de rehabilitación le ayuda a recuperarse de lesiones sufridas en un accidente de auto.",
+    items: [
+      { title: "Latigazo cervical", copy: "Ofrecemos opciones de tratamiento para aliviar el dolor y apoyar la recuperación de lesiones por latigazo cervical." },
+      { title: "Dolor de espalda", copy: "Tratamos lesiones en la parte baja, media y alta de la espalda causadas por accidentes de auto." },
+      { title: "Dolor de rodilla", copy: "Nuestros planes de terapia combinan ejercicios para desarrollar fuerza y flexibilidad." },
+      { title: "Dolor de hombro", copy: "La rehabilitación física puede ayudar a reducir el dolor y el riesgo de efectos a largo plazo de las lesiones de hombro." },
+    ],
+  },
+  treatments: {
+    title: "Nuestros tratamientos.",
+    intro: "Durante su cita, el terapeuta evaluará su fuerza y rango de movimiento para desarrollar un plan de tratamiento.",
+    imageAlt: "Escena ilustrativa de una terapeuta evaluando la espalda de un paciente.",
+    focus: "Terapia manual enfocada en su recuperación.",
+    items: [
+      { title: "Terapia manual", copy: "La terapia manual, también llamada terapia física práctica, no utiliza dispositivos ni máquinas. Por lo general, incluye trabajo de tejidos blandos y movilización articular." },
+      { title: "Ejercicios terapéuticos", copy: "Los ejercicios terapéuticos son movimientos planificados y sistemáticos para mejorar la función física, la flexibilidad, la fuerza y la resistencia." },
+      { title: "Terapia de masaje", copy: "El masaje puede ayudar a relajar los músculos antes de un ajuste quiropráctico u otra terapia. También puede ser beneficioso por sí solo después de un accidente de auto." },
+      { title: "Atención quiropráctica", copy: "La atención quiropráctica incluye ajustes que buscan aliviar el dolor y mejorar la movilidad, así como modalidades terapéuticas que apoyan los ajustes articulares." },
+      { title: "Terapia de calor y frío", copy: "La termoterapia (calor) y la crioterapia (frío) se usan en rehabilitación. El calor aumenta el flujo sanguíneo y reduce la rigidez articular. El frío reduce la inflamación y la actividad nerviosa." },
+      { title: "Terapia con ultrasonido", copy: "La terapia con ultrasonido puede ayudar a aliviar el dolor muscular y reducir la inflamación. También puede ayudar a disminuir la hinchazón en músculos, articulaciones y ligamentos." },
+      { title: "Tracción mecánica", copy: "La tracción mecánica es una forma de terapia de descompresión que alivia la presión sobre la columna. La tracción espinal es una opción no quirúrgica para aliviar el dolor y corregir problemas de espalda." },
+      { title: "Terapia de vibración", copy: "La vibración de baja frecuencia ayuda a relajar los tejidos comprimidos y recuperar su función. Las vibraciones hacen que los músculos se contraigan y relajen." },
+    ],
+  },
+  careSupport: {
+    title: "Apoyo más allá de su tratamiento.",
+    intro: "Mientras se enfoca en su recuperación, nuestro equipo le ayuda con la documentación médica y los acuerdos de tratamiento.",
+    cta: "Hable con nuestro equipo",
+    items: [
+      { title: "Documentación legal.", copy: "Mantenemos registros médicos detallados de su condición y tratamientos, y proporcionamos esta documentación a su abogado." },
+      { title: "Aceptamos su seguro de auto.", copy: "Trabajamos con un gravamen médico. Esto significa que las compañías de seguros nos pagan una vez que se resuelve su caso." },
+    ],
+  },
+  team: {
+    title: "Nuestro equipo.",
+    paragraphs: [
+      "En Advanced Human Care, nos especializamos en la rehabilitación de lesiones por accidentes de auto. Nuestros terapeutas tratan las lesiones que pudo haber sufrido.",
+      "El objetivo de la rehabilitación física es ayudarle a reparar y fortalecer los músculos y tejidos afectados.",
+    ],
+    roles: ["Director médico", "Presidenta", "Vicepresidente", "Quiropráctica", "Asistente quiropráctica"],
+  },
+  recovery: {
+    title: "Recupere su estilo de vida.",
+    paragraphs: [
+      "Si sufrió un accidente de auto, quizá se pregunte por qué necesita rehabilitación física. Después de un accidente, la rehabilitación física puede ayudar a reducir el dolor, acelerar la recuperación y mejorar el rango de movimiento.",
+      "El tratamiento temprano de las lesiones por accidentes de auto puede ayudarle a recuperarse más rápido y evitar lesiones adicionales.",
+    ],
+    imageAlt: "Escena ilustrativa de una mujer disfrutando de una caminata al aire libre.",
+    testimonialsTitle: "Lo que dicen nuestros pacientes.",
+    testimonials: [
+      "Sufrir una lesión es difícil, pero me siento afortunado de avanzar en mi recuperación con Advanced Human Care.",
+      "Desde el accidente he tenido un fuerte dolor de cuello. Gracias a mi terapeuta, he encontrado alivio.",
+    ],
+  },
+  firstVisit: {
+    title: "Antes de su primera visita.",
+    intro: "Conozca qué ocurre durante su evaluación y cómo solicitar una cita.",
+    imageAlt: "Escena ilustrativa de un terapeuta evaluando el movimiento de un paciente.",
+    faqs: [
+      { question: "¿Qué puedo esperar en mi primera cita?", answer: "Su terapeuta evaluará su fuerza y rango de movimiento, y realizará pruebas específicas para conocer sus lesiones y desarrollar un plan de tratamiento." },
+      { question: "¿Qué lesiones tratan?", answer: "Ofrecemos rehabilitación para latigazo cervical, dolor de espalda, rodilla y hombro después de un accidente de auto. Nuestros tratamientos incluyen atención práctica, ejercicios terapéuticos y las otras terapias descritas arriba." },
+      { question: "¿Cómo solicito una cita?", answer: `Use el formulario para ingresar su nombre, correo electrónico y teléfono. También puede indicar una fecha preferida y agregar un mensaje. Si lo prefiere, llame al ${clinic.phone}.` },
+    ],
+  },
+  contact: {
+    title: "Comience su recuperación.",
+    intro: "Solicite rehabilitación física en Advanced Human Care.",
+    clinicTitle: "Visite nuestra clínica en Tampa.",
+    findTitle: "Encuentre nuestra clínica en Tampa.",
+    mapLink: "Abrir en Google Maps",
+    formTitle: "Solicite rehabilitación física.",
+    required: "Los campos marcados con * son obligatorios.",
+    labels: { name: "Nombre completo *", email: "Correo electrónico *", phone: "Teléfono *", date: "Fecha deseada (opcional)", message: "Mensaje (opcional)" },
+    placeholders: { name: "Su nombre completo", email: "Su correo electrónico", phone: "Su número de teléfono", message: "Cuéntenos cómo podemos ayudarle." },
+    security: "Verificación de seguridad",
+    send: "Enviar solicitud de cita",
+    unavailable: "Las solicitudes en línea estarán disponibles pronto. Para solicitar una cita,",
+    noscript: "Active JavaScript para la verificación de seguridad o, para solicitar una cita,",
+  },
+  footer: "Volver al inicio",
+};

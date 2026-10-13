@@ -1,14 +1,18 @@
 ---
-import { injuries } from '../data/site';
+import { injuries, spanish } from '../data/site';
 import InjuryIcon from './InjuryIcon.astro';
 import Heading from "./Heading.astro";
 import { headingId } from "../utils/heading-id";
-const sectionTitle = "Care for Common Car Accident Injuries.";
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const content = locale === 'es' ? spanish.injuries : null;
+const items = content?.items ?? injuries;
+const sectionTitle = content?.title ?? "Care for Common Car Accident Injuries.";
 ---
 <section class="section injuries" aria-labelledby={headingId(sectionTitle)}>
   <div class="container">
-    <div class="section-intro"><Heading level={2} text={sectionTitle} /><p>Our rehabilitation team helps you recover from injuries sustained in a car accident.</p></div>
-    <ul class="injury-grid">{injuries.map(item => <li><article><span class="injury-icon"><InjuryIcon area={item.icon} /></span><div class="injury-copy"><Heading level={3} text={item.title} /><p>{item.copy}</p></div></article></li>)}</ul>
+    <div class="section-intro"><Heading level={2} text={sectionTitle} /><p>{content?.intro ?? 'Our rehabilitation team helps you recover from injuries sustained in a car accident.'}</p></div>
+    <ul class="injury-grid">{items.map((item, index) => <li><article><span class="injury-icon"><InjuryIcon area={injuries[index].icon} /></span><div class="injury-copy"><Heading level={3} text={item.title} /><p>{item.copy}</p></div></article></li>)}</ul>
   </div>
 </section>
 

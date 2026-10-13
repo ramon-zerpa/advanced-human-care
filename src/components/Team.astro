@@ -1,13 +1,16 @@
 ---
-import { team } from '../data/site';
+import { team, spanish } from '../data/site';
 import AppointmentButton from './AppointmentButton.astro';
 import Heading from "./Heading.astro";
 import { headingId } from "../utils/heading-id";
-const sectionTitle = "Our Team.";
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const content = locale === 'es' ? spanish.team : null;
+const sectionTitle = content?.title ?? "Our Team.";
 ---
 <section id="about-us" class="section team-section" aria-labelledby={headingId(sectionTitle)}>
   <div class="container split-layout">
-    <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>At Advanced Human Care, we specialize in car accident injury rehabilitation. Our therapists treat injuries you may have sustained.</p><p>The goal of physical rehabilitation is to help you repair and strengthen damaged muscles and tissues.</p><AppointmentButton /></div>
-    <ul class="team-grid">{team.map((member, index) => <li class:list={['team-member', { 'team-director': index === 0 }]}><Heading level={3} text={member.name} /><p>{member.role}</p></li>)}</ul>
+    <div class="split-intro"><Heading level={2} text={sectionTitle} /><p>{content?.paragraphs[0] ?? 'At Advanced Human Care, we specialize in car accident injury rehabilitation. Our therapists treat injuries you may have sustained.'}</p><p>{content?.paragraphs[1] ?? 'The goal of physical rehabilitation is to help you repair and strengthen damaged muscles and tissues.'}</p><AppointmentButton locale={locale} /></div>
+    <ul class="team-grid">{team.map((member, index) => <li class:list={['team-member', { 'team-director': index === 0 }]}><Heading level={3} text={member.name} /><p>{content?.roles[index] ?? member.role}</p></li>)}</ul>
   </div>
 </section>

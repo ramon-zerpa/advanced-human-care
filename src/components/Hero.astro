@@ -2,11 +2,16 @@
 import { Image } from 'astro:assets';
 import care from '../assets/images/hero-scenes/personalized-care.png';
 import neck from '../assets/images/hero-whiplash.png';
-import { clinic } from '../data/site';
+import { clinic, spanish } from '../data/site';
 import Icon from './Icon.astro';
 import AppointmentButton from './AppointmentButton.astro';
 import { headingId } from '../utils/heading-id';
-const title = 'Car Accident Rehabilitation in Tampa.';
+interface Props { locale?: 'en' | 'es'; }
+const { locale = 'en' } = Astro.props;
+const isSpanish = locale === 'es';
+const localClinic = isSpanish ? spanish.clinic : clinic;
+const content = isSpanish ? spanish.hero : null;
+const title = content?.title ?? 'Car Accident Rehabilitation in Tampa.';
 const titleId = headingId(title);
 ---
 <section class="hero canvas" aria-labelledby={titleId}>
@@ -14,9 +19,9 @@ const titleId = headingId(title);
     <div class="hero-layout">
       <div class="hero-copy">
         <h1 id={titleId}>{title}</h1>
-        <p>At Advanced Human Care, our therapists are highly skilled in treating injuries you may have sustained in a car accident.</p>
-        <p>Get your lifestyle back with physical rehabilitation focused on your recovery.</p>
-        <div class="hero-actions"><AppointmentButton /><a href={clinic.phoneHref} class="button button-outline"><Icon name="Phone" size={18} /><span>{clinic.phone}</span></a></div>
+        <p>{content?.paragraphs[0] ?? 'At Advanced Human Care, our therapists are highly skilled in treating injuries you may have sustained in a car accident.'}</p>
+        <p>{content?.paragraphs[1] ?? 'Get your lifestyle back with physical rehabilitation focused on your recovery.'}</p>
+        <div class="hero-actions"><AppointmentButton locale={locale} /><a href={localClinic.phoneHref} class="button button-outline"><Icon name="Phone" size={18} /><span>{localClinic.phone}</span></a></div>
       </div>
       <div class="hero-media">
         <div class="hero-editorial">
@@ -27,20 +32,20 @@ const titleId = headingId(title);
           </div>
           <div class="editorial-detail">
             <div class="editorial-entry"><div class="editorial-hover">
-              <Image src={care} alt="Care for Common Car Accident Injuries." width={580} height={435} widths={[200, 360, 580]} sizes="(min-width: 1120px) 209px, (min-width: 760px) 18vw, 1px" format="webp" quality={82} loading="lazy" fetchpriority="low" />
+              <Image src={care} alt={content?.imageAlt ?? 'Care for Common Car Accident Injuries.'} width={580} height={435} widths={[200, 360, 580]} sizes="(min-width: 1120px) 209px, (min-width: 760px) 18vw, 1px" format="webp" quality={82} loading="lazy" fetchpriority="low" />
             </div></div>
           </div>
           <div class="editorial-message">
             <div class="editorial-entry"><div class="editorial-hover">
-              <p><Icon name="HeartHandshake" size={28} /><span>Get Your Lifestyle Back.</span></p>
+              <p><Icon name="HeartHandshake" size={28} /><span>{content?.message ?? 'Get Your Lifestyle Back.'}</span></p>
             </div></div>
           </div>
         </div>
       </div>
     </div>
     <address class="hero-details">
-      <a href={clinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" size={20} /><span>{clinic.addressLabel}</span><span class="sr-only"> (opens in a new tab)</span></a>
-      <p><Icon name="Clock3" size={20} /><span>{clinic.hours}</span></p>
+      <a href={localClinic.maps} target="_blank" rel="noopener noreferrer"><Icon name="MapPin" size={20} /><span>{content?.address ?? localClinic.addressLabel}</span><span class="sr-only">{isSpanish ? ' (se abre en una pestaña nueva)' : ' (opens in a new tab)'}</span></a>
+      <p><Icon name="Clock3" size={20} /><span>{localClinic.hours}</span></p>
     </address>
   </div>
 </section>

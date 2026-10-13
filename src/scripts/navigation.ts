@@ -8,7 +8,7 @@ if (toggle && menu) {
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute(
       "aria-label",
-      open ? "Close navigation menu" : "Open navigation menu",
+      open ? toggle.dataset.labelClose || "Close navigation menu" : toggle.dataset.labelOpen || "Open navigation menu",
     );
     menu.hidden = !open;
     if (openIcon) openIcon.hidden = open;
