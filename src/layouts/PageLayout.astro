@@ -11,7 +11,7 @@ const localClinic = isSpanish ? spanish.clinic : clinic;
 const localTreatments = isSpanish ? spanish.treatments.items : treatments;
 const siteUrl = Astro.site!;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
-const logoUrl = new URL('/logo.png', siteUrl).href;
+const logoUrl = new URL('/logo-dark.png', siteUrl).href;
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -73,7 +73,7 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={logoUrl} />
     <meta name="twitter:image:alt" content={`${localClinic.name} logo`} />
-    <meta name="theme-color" content="#174A3A" />
+    <meta name="theme-color" content="#121310" />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />

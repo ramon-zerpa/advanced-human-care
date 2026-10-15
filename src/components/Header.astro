@@ -18,7 +18,7 @@ const localNavigation = isSpanish ? spanish.navigation : navigation;
     </div>
   </div>
   <div class="container navigation-bar">
-    <a href="#top" class="logo-link" aria-label={isSpanish ? 'Advanced Human Care — volver al inicio' : 'Advanced Human Care — back to top'}><img src="/logo.png" alt="Advanced Human Care" width="215" height="95" /></a>
+    <a href="#top" class="logo-link" aria-label={isSpanish ? 'Advanced Human Care — volver al inicio' : 'Advanced Human Care — back to top'}><img src="/logo-dark.webp" alt="Advanced Human Care" width="215" height="95" /></a>
     <nav class="desktop-navigation" aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}>{localNavigation.map(item => <a href={item.href}>{item.label}</a>)}</nav>
     <div class="desktop-header-actions">
       <a href={localClinic.phoneHref} class="button header-phone"><Icon name="Phone" size={18} /><span>{localClinic.phone}</span></a>

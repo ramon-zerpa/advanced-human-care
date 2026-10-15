@@ -21,7 +21,7 @@ const titleId = headingId(title);
         <h1 id={titleId}>{title}</h1>
         <p>{content?.paragraphs[0] ?? 'At Advanced Human Care, our therapists are highly skilled in treating injuries you may have sustained in a car accident.'}</p>
         <p>{content?.paragraphs[1] ?? 'Get your lifestyle back with physical rehabilitation focused on your recovery.'}</p>
-        <div class="hero-actions"><AppointmentButton locale={locale} /><a href={localClinic.phoneHref} class="button button-outline"><Icon name="Phone" size={18} /><span>{localClinic.phone}</span></a></div>
+        <div class="hero-actions"><AppointmentButton locale={locale} /><a href={localClinic.phoneHref} class="button button-light"><Icon name="Phone" size={18} /><span>{localClinic.phone}</span></a></div>
       </div>
       <div class="hero-media">
         <div class="hero-editorial">
@@ -110,10 +110,13 @@ const titleId = headingId(title);
     bottom: 12px;
     width: 36%;
     aspect-ratio: 4 / 3;
+    padding: 5px;
+    border-radius: 14px;
+    background: var(--sage);
     --tilt: 3deg;
     z-index: 2;
   }
-  .editorial-detail img { border: 5px solid var(--canvas); }
+  .editorial-detail img { border: 0; border-radius: 9px; }
   .editorial-message {
     left: -20px;
     bottom: 42px;

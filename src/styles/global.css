@@ -2,19 +2,27 @@
 @import "@fontsource/noto-sans/latin-400.css";
 @import "@fontsource/noto-sans/latin-600.css";
 :root {
-  --forest: #174a3a;
-  --ink: #25342e;
-  --muted: #58665e;
-  --canvas: #f7f8f4;
-  --sage: #e4ece4;
-  --gold-ink: #986d16;
-  --border: #ccd7ce;
-  --field-border: #738578;
-  --gradient: linear-gradient(90deg, #007b30 0%, #008432 6%, #174a3a 100%);
+  color-scheme: dark;
+  --forest: #f2eee4;
+  --ink: #e8e5dc;
+  --muted: #b9b6ac;
+  --canvas: #121310;
+  --header: #1b1a16;
+  --surface: #1c1d19;
+  --sage: #292a25;
+  --support: #20211d;
+  --gold: #d4b263;
+  --gold-ink: #d5b564;
+  --green: #009e3b;
+  --green-ink: #55c77d;
+  --text-on-gold: #19170f;
+  --border: #45463f;
+  --field-border: #817f74;
+  --gradient: linear-gradient(90deg, #c49d52 0%, #d4b263 6%, #bd9544 100%);
   --font-body: "Noto Sans", Arial, sans-serif;
   --font-heading: "Lora", Georgia, serif;
-  --button-shadow: 0 4px 14px #174a3a2e;
-  --image-shadow: 0 7px 24px #174a3a24;
+  --button-shadow: 0 4px 14px #00000066;
+  --image-shadow: 0 7px 24px #00000073;
 }
 *,
 *::before,
@@ -27,7 +35,7 @@ html {
 }
 body {
   margin: 0;
-  background: white;
+  background: var(--canvas);
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.55;
@@ -92,9 +100,9 @@ blockquote {
   margin: 0;
 }
 :focus-visible {
-  outline: 3px solid #fff;
+  outline: 3px solid var(--gold);
   outline-offset: 3px;
-  box-shadow: 0 0 0 6px var(--forest);
+  box-shadow: 0 0 0 6px var(--canvas);
 }
 [hidden] {
   display: none !important;
@@ -115,7 +123,8 @@ blockquote {
   z-index: 10;
   top: 12px;
   left: 24px;
-  background: white;
+  background: var(--surface);
+  color: var(--ink);
   padding: 12px 20px;
   transform: translateY(-180%);
 }
@@ -127,9 +136,13 @@ blockquote {
   margin-inline: auto;
 }
 .section {
+  background: var(--surface);
   padding-block: 80px 88px;
 }
 .canvas {
+  background: var(--canvas);
+}
+.section.canvas {
   background: var(--canvas);
 }
 .section-intro {
@@ -162,17 +175,17 @@ blockquote {
 }
 .button-primary,
 .header-phone {
-  color: white;
+  color: var(--text-on-gold);
   background: var(--gradient);
 }
 .button-outline {
   background: transparent;
   color: var(--forest);
-  border-color: var(--forest);
+  border-color: var(--green);
 }
 .button-light {
-  background: var(--sage);
-  color: var(--forest);
+  background: var(--green);
+  color: var(--text-on-gold);
 }
 .button-compact {
   min-height: 44px;
@@ -190,7 +203,7 @@ blockquote {
 @media (hover: hover) {
   .button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px #174a3a38;
+    box-shadow: 0 6px 18px #00000080;
   }
   .header-phone:hover svg,
   .button-outline:hover svg {
@@ -206,11 +219,14 @@ blockquote {
 }
 .topbar {
   background: var(--gradient);
-  color: white;
+  color: var(--text-on-gold);
   font-size: 13px;
 }
+.site-header {
+  background: var(--header);
+}
 .topbar a {
-  color: white;
+  color: var(--text-on-gold);
   min-height: 24px;
 }
 .topbar-inner {
@@ -263,7 +279,7 @@ blockquote {
   bottom: 7px;
   inset-inline: 0;
   height: 1px;
-  background: currentColor;
+  background: var(--green);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 180ms ease;
@@ -306,11 +322,16 @@ blockquote {
   font-size: 13px;
   font-weight: 600;
 }
-.language-link { color: var(--forest); text-decoration: none; }
-.language-link:hover { text-decoration: underline; }
+.language-link {
+  color: var(--forest);
+  text-decoration: none;
+}
+.language-link:hover {
+  text-decoration: underline;
+}
 .language-active {
-  color: white;
-  background: var(--forest);
+  color: var(--text-on-gold);
+  background: var(--green);
 }
 .language-pending {
   background: transparent;
@@ -326,8 +347,8 @@ blockquote {
   border-radius: 8px;
   align-items: center;
   justify-content: center;
-  color: white;
-  background: var(--forest);
+  color: var(--text-on-gold);
+  background: var(--green);
 }
 .mobile-menu {
   padding-bottom: 24px;
@@ -432,7 +453,10 @@ blockquote {
   align-content: start;
   gap: 16px;
 }
-.injury-copy { display: grid; gap: 16px; }
+.injury-copy {
+  display: grid;
+  gap: 16px;
+}
 .injury-icon {
   display: flex;
   align-items: center;
@@ -493,17 +517,17 @@ blockquote {
   min-width: 0;
 }
 .care-support {
-  background: var(--forest);
+  background: var(--support);
 }
 .care-support .split-layout {
   gap: 64px;
 }
 .care-support h2,
 .care-support h3 {
-  color: white;
+  color: var(--ink);
 }
 .care-support p {
-  color: var(--sage);
+  color: var(--muted);
 }
 .support-items {
   display: grid;
@@ -511,7 +535,7 @@ blockquote {
 }
 .support-items article {
   padding-bottom: 28px;
-  border-bottom: 1px solid #537d6b;
+  border-bottom: 1px solid var(--border);
 }
 .support-items h3 {
   display: flex;
@@ -520,7 +544,7 @@ blockquote {
   margin-bottom: 16px;
 }
 .support-items h3 svg {
-  color: #c89b3c;
+  color: var(--green-ink);
 }
 .team-section {
   padding-block: 88px 96px;
@@ -576,7 +600,7 @@ blockquote {
   align-content: start;
 }
 .quote-icon {
-  color: var(--gold-ink);
+  color: var(--green);
 }
 .testimonial-grid blockquote p {
   color: var(--ink);
@@ -697,7 +721,7 @@ blockquote {
   display: block;
 }
 .appointment-form {
-  background: white;
+  background: var(--surface);
   border-radius: 12px;
   padding: 32px;
   display: grid;
@@ -728,7 +752,7 @@ blockquote {
 .field textarea {
   width: 100%;
   min-width: 0;
-  background: white;
+  background: var(--surface);
   color: var(--ink);
   padding: 14px 16px;
   border: 1px solid var(--field-border);
@@ -782,6 +806,8 @@ blockquote {
 }
 .form-submit {
   width: 100%;
+  background: var(--green);
+  color: var(--text-on-gold);
 }
 .form-submit:disabled {
   opacity: 0.7;
@@ -796,7 +822,7 @@ blockquote {
   display: none;
 }
 .form-status[data-state="error"] {
-  color: #8a2828;
+  color: #ff9c9c;
 }
 .form-unavailable {
   font-size: 13px;
@@ -806,7 +832,7 @@ blockquote {
 }
 .bottom-bar {
   background: var(--gradient);
-  color: white;
+  color: var(--text-on-gold);
   padding-block: 20px;
 }
 .bottom-bar-inner {
@@ -817,7 +843,7 @@ blockquote {
 }
 .bottom-bar p,
 .bottom-bar a {
-  color: white;
+  color: var(--text-on-gold);
   font-size: 13px;
 }
 .bottom-bar a {
@@ -1001,11 +1027,26 @@ blockquote {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-  .injuries h2 { font-size: 32px; line-height: 1.1; }
-  .injury-grid article { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
-  .injury-icon { width: 44px; height: 44px; border-radius: 22px; }
-  .injury-icon svg { width: 28px; height: 28px; }
-  .injury-copy { gap: 10px; }
+  .injuries h2 {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  .injury-grid article {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .injury-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+  }
+  .injury-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .injury-copy {
+    gap: 10px;
+  }
   .injury-grid h3 {
     font-size: 24px;
   }
@@ -1023,10 +1064,18 @@ blockquote {
     grid-template-columns: 1fr;
     order: 3;
   }
-  .treatment-media { display: contents; }
-  .treatment-photo { order: 1; }
-  .treatment-media h3 { order: 2; }
-  .treatment-cta { order: 4; }
+  .treatment-media {
+    display: contents;
+  }
+  .treatment-photo {
+    order: 1;
+  }
+  .treatment-media h3 {
+    order: 2;
+  }
+  .treatment-cta {
+    order: 4;
+  }
   .treatment-media h3 {
     font-size: 25px;
   }
