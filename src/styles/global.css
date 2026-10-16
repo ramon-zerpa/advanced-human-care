@@ -7,7 +7,8 @@
   --ink: #e8e5dc;
   --muted: #b9b6ac;
   --canvas: #121310;
-  --header: #1b1a16;
+  --header: #ffffff;
+  --header-foreground: #174a3a;
   --surface: #1c1d19;
   --sage: #292a25;
   --support: #20211d;
@@ -266,7 +267,7 @@ blockquote {
   gap: 28px;
 }
 .desktop-navigation a {
-  color: var(--forest);
+  color: var(--header-foreground);
   font-size: 15px;
   font-weight: 600;
   position: relative;
@@ -362,6 +363,7 @@ blockquote {
   display: flex;
   align-items: center;
   min-height: 48px;
+  color: var(--header-foreground);
   font-weight: 600;
 }
 .mobile-menu-actions {
